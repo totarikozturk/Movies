@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 //        let navController = UINavigationController()
 //        navController.viewControllers = [viewController]
-        let viewController = MovieViewController()
+        let viewController = SplashViewController()
         window.rootViewController = viewController
         self.window = window
         window.makeKeyAndVisible()
