@@ -29,7 +29,6 @@ class BookMarkCell : UITableViewCell {
     }
     
     func drawDesign() {
-        contentView.backgroundColor = .lightGray
         backgroundColor = UIColor.lightGray
         addSubview(movieImage)
         addSubview(movieTitle)

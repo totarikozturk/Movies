@@ -17,6 +17,7 @@ extension BookMarksViewController {
     
     func drawDesign() {
         view.backgroundColor = .blue
+        view.addSubview(tableView)
     }
     
     func makeTableView() {

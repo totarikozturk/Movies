@@ -9,12 +9,13 @@ import UIKit
 
 extension BookMarksViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.BookmarkCell, for: indexPath) as! BookMarkCell
-        
+        cell.movieImage.image = UIImage(systemName: "display")
+        cell.movieTitle.text =  "Title"
         return cell
     }
     

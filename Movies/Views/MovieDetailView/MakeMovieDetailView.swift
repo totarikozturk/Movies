@@ -25,15 +25,32 @@ extension MovieDetailViewController {
     }
     
     func makeDetailImageView() {
-        
+        detailImage.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.centerY)
+        }
     }
     
     func makeDetailTitleView() {
-        
+        detailTitle.snp.makeConstraints { make in
+            make.top.equalTo(detailImage.snp_bottomMargin).offset(8)
+            make.centerX.equalTo(view.snp.centerX)
+            make.height.equalTo(60)
+        }
     }
     
     func makeDetailDescview() {
-        
+        detailDesc.lineBreakMode = .byWordWrapping
+        detailDesc.numberOfLines = 0
+        detailDesc.textAlignment = .left
+        detailDesc.snp.makeConstraints { make in
+            make.top.equalTo(detailTitle.snp_bottomMargin).offset(8)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top).offset(120)
+        }
     }
     
     func NavigationBarAppearance() {
