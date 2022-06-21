@@ -10,7 +10,13 @@ import UIKit
 
 class BookMarksViewController: UIViewController {
     
+    let appearance = UINavigationBarAppearance()
+    let tableView = UITableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureView()
     }
+    
 }
