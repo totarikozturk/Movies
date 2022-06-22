@@ -25,7 +25,7 @@ extension BookMarksViewController {
         tableView.dataSource = self
         tableView.rowHeight = 120
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(BookMarkCell.self,forCellReuseIdentifier: Cells.BookmarkCell)
+        tableView.register(BookMarkCell.self,forCellReuseIdentifier: BookMarkCell.BookmarkCell)
         tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)

@@ -9,6 +9,8 @@ import UIKit
 
 class MovieCell : UITableViewCell {
     
+    static let movieCell = "MovieCell"
+    
     let movieImage = UIImageView()
     let movieTitle = UILabel()
     let movieFavButton = UIButton()

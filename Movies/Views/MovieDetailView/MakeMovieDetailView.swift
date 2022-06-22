@@ -49,7 +49,6 @@ extension MovieDetailViewController {
             make.top.equalTo(detailTitle.snp_bottomMargin).offset(8)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top).offset(120)
         }
     }
     

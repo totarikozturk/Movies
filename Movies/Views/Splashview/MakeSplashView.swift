@@ -28,18 +28,15 @@ extension SplashViewController {
     }
     
     func setViewController() {
-        let tabbarVC = UITabBarController()
+        let tabbarViewController = UITabBarController()
+        let viewController1 = UINavigationController(rootViewController: MoviesViewController())
+        let viewController2 = UINavigationController(rootViewController:  BookMarksViewController())
+        viewController1.title = "Moview"
+        viewController2.title = "BookMarks"
+        tabbarViewController.tabBar.backgroundColor = .lightGray
+        tabbarViewController.setViewControllers([viewController1, viewController2], animated: false)
         
-        let vc1 = UINavigationController(rootViewController: MoviesViewController())
-        let vc2 = UINavigationController(rootViewController:  BookMarksViewController())
-        
-        vc1.title = "Moview"
-        vc2.title = "BookMarks"
-        
-        tabbarVC.tabBar.backgroundColor = .lightGray
-        tabbarVC.setViewControllers([vc1, vc2], animated: false)
-        
-        guard let items = tabbarVC.tabBar.items else { return }
+        guard let items = tabbarViewController.tabBar.items else { return }
         
         let images = ["display", "book"]
         
@@ -47,8 +44,8 @@ extension SplashViewController {
             items[x].image = UIImage(systemName: images[x])
         }
         
-        tabbarVC.modalPresentationStyle = .fullScreen
-        present(tabbarVC, animated: true)
+        tabbarViewController.modalPresentationStyle = .fullScreen
+        present(tabbarViewController, animated: true)
     }
     
 }

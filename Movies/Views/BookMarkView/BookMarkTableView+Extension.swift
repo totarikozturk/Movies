@@ -13,7 +13,9 @@ extension BookMarksViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.BookmarkCell, for: indexPath) as! BookMarkCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: BookMarkCell.BookmarkCell,
+            for: indexPath) as? BookMarkCell else { return UITableViewCell() }
         cell.movieImage.image = UIImage(systemName: "display")
         cell.movieTitle.text =  "Title"
         return cell

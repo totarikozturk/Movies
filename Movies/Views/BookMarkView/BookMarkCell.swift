@@ -9,6 +9,8 @@ import UIKit
 
 class BookMarkCell : UITableViewCell {
     
+    static let BookmarkCell = "BookmarkCell"
+    
     let movieImage = UIImageView()
     let movieTitle = UILabel()
     
@@ -56,7 +58,6 @@ class BookMarkCell : UITableViewCell {
         movieTitle.font = .boldSystemFont(ofSize: 20)
         movieTitle.snp.makeConstraints { make in
             make.top.equalTo(movieImage.snp.topMargin)
-            //            make.bottom.equalToSuperview().offset(-42)
             make.left.equalTo(movieImage.snp.right).offset(8)
             make.height.equalTo(40)
         }

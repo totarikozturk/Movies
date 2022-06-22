@@ -28,7 +28,7 @@ extension MoviesViewController {
         tableView.dataSource = self
         tableView.rowHeight = 120
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(MovieCell.self,forCellReuseIdentifier: Cells.movieCell)
+        tableView.register(MovieCell.self,forCellReuseIdentifier: MovieCell.movieCell)
         tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
