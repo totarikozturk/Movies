@@ -8,22 +8,22 @@
 import UIKit
 
 extension MovieDetailViewController {
-    
+
     func configureView() {
         drawDesign()
         makeDetailImageView()
         makeDetailTitleView()
         makeDetailDescview()
-        NavigationBarAppearance()
+        navigationBarAppearance()
     }
-    
+
     func drawDesign() {
         view.addSubview(detailImage)
         view.addSubview(detailTitle)
         view.addSubview(detailDesc)
         view.backgroundColor = .orange
     }
-    
+
     func makeDetailImageView() {
         detailImage.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
@@ -32,7 +32,7 @@ extension MovieDetailViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.centerY)
         }
     }
-    
+
     func makeDetailTitleView() {
         detailTitle.snp.makeConstraints { make in
             make.top.equalTo(detailImage.snp_bottomMargin).offset(8)
@@ -40,7 +40,7 @@ extension MovieDetailViewController {
             make.height.equalTo(60)
         }
     }
-    
+
     func makeDetailDescview() {
         detailDesc.lineBreakMode = .byWordWrapping
         detailDesc.numberOfLines = 0
@@ -51,8 +51,8 @@ extension MovieDetailViewController {
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
         }
     }
-    
-    func NavigationBarAppearance() {
+
+    func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .lightGray
         navigationController?.navigationBar.standardAppearance = appearance
@@ -60,5 +60,5 @@ extension MovieDetailViewController {
         navigationController?.navigationBar.backgroundColor = .lightGray
         navigationItem.title = "MovieDetail"
     }
-    
+
 }

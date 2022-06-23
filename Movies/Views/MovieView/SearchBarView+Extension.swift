@@ -8,34 +8,34 @@
 import UIKit
 
 extension MoviesViewController {
-    
+
     @objc func showSearchBar() {
         search(shouldShow: true)
         searchBar.becomeFirstResponder()
     }
-    
+
     func showSearchBarButton(shouldShow: Bool) {
-        if shouldShow   {
+        if shouldShow {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                                 target: self,
                                                                 action: #selector(showSearchBar))
-        }else {
+        } else {
             navigationItem.rightBarButtonItem = nil
         }
     }
-    
+
     func search(shouldShow: Bool) {
         showSearchBarButton(shouldShow: !shouldShow)
         searchBar.showsCancelButton = shouldShow
         navigationItem.titleView = shouldShow ? searchBar : nil
     }
-    
+
 }
 
 extension MoviesViewController: UISearchBarDelegate {
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         search(shouldShow: false)
     }
-    
+
 }

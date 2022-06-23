@@ -7,41 +7,44 @@
 
 import UIKit
 
-class BookMarkCell : UITableViewCell {
-    
+class BookMarkCell: UITableViewCell {
+
     static let BookmarkCell = "BookmarkCell"
-    
+
     let movieImage = UIImageView()
     let movieTitle = UILabel()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         configure()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func configure() {
         drawDesign()
         makeMovieImage()
         makeMovieTitle()
     }
-    
+
     func drawDesign() {
         backgroundColor = UIColor.lightGray
         addSubview(movieImage)
         addSubview(movieTitle)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         let bottomSpace: CGFloat = 10.0
-        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: bottomSpace, right: 0))
+        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0,
+                                                                               left: 0,
+                                                                               bottom: bottomSpace,
+                                                                               right: 0))
     }
-    
+
     func makeMovieImage() {
         movieImage.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 112, height: 80))
@@ -50,7 +53,7 @@ class BookMarkCell : UITableViewCell {
             make.left.equalToSuperview().offset(8)
         }
     }
-    
+
     func makeMovieTitle() {
         movieTitle.numberOfLines = 0
         movieTitle.adjustsFontSizeToFitWidth = true
@@ -62,5 +65,5 @@ class BookMarkCell : UITableViewCell {
             make.height.equalTo(40)
         }
     }
-    
+
 }

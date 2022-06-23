@@ -8,24 +8,24 @@
 import UIKit
 
 extension BookMarksViewController {
-    
+
     func configureView() {
         drawDesign()
         makeTableView()
-        NavigationBarAppearance()
+        navigationBarAppearance()
     }
-    
+
     func drawDesign() {
         view.backgroundColor = .blue
         view.addSubview(tableView)
     }
-    
+
     func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 120
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(BookMarkCell.self,forCellReuseIdentifier: BookMarkCell.BookmarkCell)
+        tableView.register(BookMarkCell.self, forCellReuseIdentifier: BookMarkCell.BookmarkCell)
         tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
@@ -34,8 +34,8 @@ extension BookMarksViewController {
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
         }
     }
-    
-    func NavigationBarAppearance() {
+
+    func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .lightGray
         navigationController?.navigationBar.standardAppearance = appearance
@@ -43,5 +43,5 @@ extension BookMarksViewController {
         navigationController?.navigationBar.backgroundColor = .lightGray
         navigationItem.title = "BookMarks"
     }
-    
+
 }

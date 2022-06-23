@@ -7,11 +7,11 @@
 
 import UIKit
 
-extension BookMarksViewController : UITableViewDelegate, UITableViewDataSource {
+extension BookMarksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: BookMarkCell.BookmarkCell,
@@ -20,5 +20,5 @@ extension BookMarksViewController : UITableViewDelegate, UITableViewDataSource {
         cell.movieTitle.text =  "Title"
         return cell
     }
-    
+
 }

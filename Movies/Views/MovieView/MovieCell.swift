@@ -7,31 +7,31 @@
 
 import UIKit
 
-class MovieCell : UITableViewCell {
-    
+class MovieCell: UITableViewCell {
+
     static let movieCell = "MovieCell"
-    
+
     let movieImage = UIImageView()
     let movieTitle = UILabel()
     let movieFavButton = UIButton()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         configure()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func configure() {
         drawDesign()
         makeMovieImage()
         makeMovieTitle()
         makeMovieFavButton()
     }
-    
+
     func drawDesign() {
         contentView.backgroundColor = .lightGray
         backgroundColor = UIColor.lightGray
@@ -39,13 +39,16 @@ class MovieCell : UITableViewCell {
         addSubview(movieTitle)
         contentView.addSubview(movieFavButton)
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         let bottomSpace: CGFloat = 10.0
-        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: bottomSpace, right: 0))
+        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0,
+                                                                               left: 0,
+                                                                               bottom: bottomSpace,
+                                                                               right: 0))
     }
-    
+
     func makeMovieImage() {
         movieImage.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 112, height: 80))
@@ -54,7 +57,7 @@ class MovieCell : UITableViewCell {
             make.left.equalToSuperview().offset(8)
         }
     }
-    
+
     func makeMovieTitle() {
         movieTitle.numberOfLines = 0
         movieTitle.adjustsFontSizeToFitWidth = true
@@ -67,7 +70,7 @@ class MovieCell : UITableViewCell {
             make.height.equalTo(40)
         }
     }
-    
+
     func makeMovieFavButton() {
         movieFavButton.tintColor = UIColor.black
         movieFavButton.snp.makeConstraints { make in
@@ -76,5 +79,5 @@ class MovieCell : UITableViewCell {
             make.right.equalToSuperview().offset(-16)
         }
     }
-    
+
 }

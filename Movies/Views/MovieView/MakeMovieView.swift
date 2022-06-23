@@ -8,13 +8,13 @@ import UIKit
 import SnapKit
 
 extension MoviesViewController {
-    
+
     func configureView() {
         drawDesign()
         makeTableView()
-        NavigationBarAppearance()
+        navigationBarAppearance()
     }
-    
+
     func drawDesign() {
         view.backgroundColor = .purple
         tableView.backgroundColor = .lightGray
@@ -22,13 +22,13 @@ extension MoviesViewController {
         searchBar.sizeToFit()
         searchBar.delegate = self
     }
-    
+
     func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 120
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(MovieCell.self,forCellReuseIdentifier: MovieCell.movieCell)
+        tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.movieCell)
         tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
@@ -37,8 +37,8 @@ extension MoviesViewController {
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
         }
     }
-    
-    func NavigationBarAppearance() {
+
+    func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .white
         navigationController?.navigationBar.standardAppearance = appearance
@@ -50,7 +50,5 @@ extension MoviesViewController {
         navigationController?.navigationBar.tintColor = .black
         showSearchBarButton(shouldShow: true)
     }
-    
+
 }
-
-

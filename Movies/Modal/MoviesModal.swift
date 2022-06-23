@@ -8,14 +8,14 @@
 import UIKit
 
 struct MoviesModal {
-    let movieTitle : String
-    let movieImage : UIImage
-    let movieDesc : String
-    
+    let movieTitle: String
+    let movieImage: UIImage
+    let movieDesc: String
+
     init(
-        movieTitle : String,
-        movieImage : UIImage,
-        movieDesc : String
+        movieTitle: String,
+        movieImage: UIImage,
+        movieDesc: String
     ) {
         self.movieTitle = movieTitle
         self.movieImage = movieImage

@@ -8,13 +8,14 @@
 import UIKit
 
 class SplashViewController: UIViewController {
-    
+
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         view.backgroundColor = .lightGray
         startLoading()
     }
-    
+
 }
