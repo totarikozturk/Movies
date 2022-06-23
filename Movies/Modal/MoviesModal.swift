@@ -7,18 +7,27 @@
 
 import UIKit
 
-struct MoviesModal {
-    let movieTitle: String
-    let movieImage: UIImage
-    let movieDesc: String
+struct MoviesModal: Codable {
 
-    init(
-        movieTitle: String,
-        movieImage: UIImage,
-        movieDesc: String
-    ) {
-        self.movieTitle = movieTitle
-        self.movieImage = movieImage
-        self.movieDesc = movieDesc
+    var movieTitle: String
+    var movieImage: Image
+    var movieDesc: String
+
+    struct Image: Codable {
+        let imageData: Data?
+
+        init(withImage image: UIImage) {
+            self.imageData = image.pngData()
+        }
+
+        func getImage() -> UIImage? {
+            guard let imageData = self.imageData else {
+                return nil
+            }
+            let image = UIImage(data: imageData)
+
+            return image
+        }
     }
+
 }
