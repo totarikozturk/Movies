@@ -10,14 +10,14 @@ import UIKit
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: MovieCell.movieCell,
             for: indexPath) as? MovieCell else { return UITableViewCell() }
-        cell.movieTitle.text = "title"
+        cell.movieTitle.text = "1231"
         cell.movieImage.image = UIImage(systemName: "display")
         cell.movieFavButton.setTitle("Fav", for: .normal)
         cell.movieFavButton.setTitleColor(UIColor.black, for: .normal)
