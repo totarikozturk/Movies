@@ -15,19 +15,13 @@ extension SplashViewController {
         activityIndicator.style = UIActivityIndicatorView.Style.large
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-
-        //        DispatchQueue will change after API avilable
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
-            setViewController()
-            stopLoading()
-        }
     }
 
     func stopLoading() {
         activityIndicator.stopAnimating()
     }
 
-    func setViewController() {
+    func setTabBarController() {
         let tabbarViewController = UITabBarController()
         let viewController1 = UINavigationController(rootViewController: MoviesViewController())
         let viewController2 = UINavigationController(rootViewController: BookMarksViewController())
