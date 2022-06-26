@@ -26,16 +26,12 @@ extension MoviesViewController {
     func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 120
+        tableView.rowHeight = 160
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.movieCell)
         tableView.separatorStyle = .singleLine
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-//            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top).offset(118)
-//            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
-//            make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
         }
     }
 

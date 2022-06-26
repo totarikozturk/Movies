@@ -29,7 +29,7 @@ extension SplashViewController {
         let tabbarViewController = UITabBarController()
         let viewController1 = UINavigationController(rootViewController: MoviesViewController())
         let viewController2 = UINavigationController(rootViewController: BookMarksViewController())
-        viewController1.title = "Moview"
+        viewController1.title = "Movie"
         viewController2.title = "BookMarks"
         tabbarViewController.tabBar.backgroundColor = .lightGray
         tabbarViewController.setViewControllers([viewController1, viewController2], animated: false)

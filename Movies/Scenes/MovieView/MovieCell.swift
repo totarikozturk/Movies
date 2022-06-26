@@ -15,7 +15,7 @@ class MovieCell: UITableViewCell {
     let movieImage = UIImageView()
     let movieTitle = UILabel()
     let movieYear = UILabel()
-    let movieOverview = UILabel()
+//    let movieOverview = UILabel()
     let movieRate = UILabel()
     let movieFavButton = UIButton()
 
@@ -38,48 +38,17 @@ class MovieCell: UITableViewCell {
     private func updateUI(title: String?, releaseDate: String?, rating: Double?,
                           overView: String?, poster: String?) {
 
-        guard let posterString = poster else {return}
-              let urlString = "https://image.tmdb.org/t/p/w300" + posterString
-
-                guard let posterImageURL = URL(string: urlString) else {
-                    self.movieImage.image = UIImage(named: "noImageAvailable")
-                    return
-                }
-
-                // Before we download the image we clear out the old one
-                self.movieImage.image = nil
-
-                getImageDataFrom(url: posterImageURL)
-
+        guard let posterString = poster else { return }
+        let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
+        self.movieImage.kf.setImage(with: url)
         self.movieTitle.text = title
         self.movieYear.text = convertDateFormatter(releaseDate)
         guard let rate = rating else { return }
         self.movieRate.text = String(rate)
-        self.movieOverview.text = overView
+//        self.movieOverview.text = overView
+        self.movieFavButton.setImage(UIImage(systemName: "star"), for: .normal)
     }
 
-    // MARK: - Get image data
-      private func getImageDataFrom(url: URL) {
-          URLSession.shared.dataTask(with: url) { (data, response, error) in
-              // Handle Error
-              if let error = error {
-                  print("DataTask error: \(error.localizedDescription)")
-                  return
-              }
-
-              guard let data = data else {
-                  // Handle Empty Data
-                  print("Empty Data")
-                  return
-              }
-
-              DispatchQueue.main.async {
-                  if let image = UIImage(data: data) {
-                      self.movieImage.image = image
-                  }
-              }
-          }.resume()
-      }
     func convertDateFormatter(_ date: String?) -> String {
         var fixDate = ""
         let dateFormatter = DateFormatter()
@@ -98,7 +67,7 @@ class MovieCell: UITableViewCell {
         makeMovieImage()
         makeMovieTitle()
         makeMovieYear()
-        makeMovieOverview()
+//        makeMovieOverview()
         makeMovieRate()
         makeMovieFavButton()
     }
@@ -109,7 +78,7 @@ class MovieCell: UITableViewCell {
         addSubview(movieImage)
         addSubview(movieTitle)
         addSubview(movieYear)
-        addSubview(movieOverview)
+//        addSubview(movieOverview)
         addSubview(movieRate)
         contentView.addSubview(movieFavButton)
     }
@@ -125,11 +94,10 @@ class MovieCell: UITableViewCell {
 
     func makeMovieImage() {
         movieImage.snp.makeConstraints { make in
-//            make.size.equalTo(CGSize(width: 112, height: 80))
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-16)
             make.left.equalToSuperview().offset(8)
-            make.right.equalToSuperview().offset(-240)
+            make.right.equalToSuperview().offset(-300)
         }
     }
 
@@ -137,57 +105,57 @@ class MovieCell: UITableViewCell {
         movieTitle.lineBreakMode = .byWordWrapping
         movieTitle.numberOfLines = 0
         movieTitle.textAlignment = .left
+        movieTitle.minimumScaleFactor = 1
         movieTitle.adjustsFontSizeToFitWidth = true
         movieTitle.textColor = UIColor.black
-        movieTitle.font = .boldSystemFont(ofSize: 12)
+        movieTitle.font = .boldSystemFont(ofSize: 24)
         movieTitle.snp.makeConstraints { make in
-            make.top.equalTo(movieImage.snp.top)
+            make.top.equalTo(movieImage.snp.topMargin)
             make.left.equalTo(movieImage.snp.right).offset(8)
+            make.right.equalToSuperview().offset(-60)
         }
     }
 
     func makeMovieYear() {
-        movieYear.lineBreakMode = .byWordWrapping
-        movieYear.numberOfLines = 0
-        movieYear.textAlignment = .left
-        movieYear.adjustsFontSizeToFitWidth = true
         movieYear.textColor = UIColor.black
-        movieYear.font = .boldSystemFont(ofSize: 12)
+        movieYear.font = .systemFont(ofSize: 20)
         movieYear.snp.makeConstraints { make in
-            make.top.equalTo(movieTitle.snp.bottomMargin).offset(16)
+            make.top.equalTo(movieTitle.snp.bottomMargin).offset(8)
             make.left.equalTo(movieImage.snp.right).offset(8)
         }
     }
 
-    func makeMovieOverview() {
-        movieOverview.lineBreakMode = .byClipping
-        movieOverview.numberOfLines = 0
-        movieOverview.textAlignment = .left
-        movieOverview.adjustsFontSizeToFitWidth = true
-        movieOverview.textColor = UIColor.black
-        movieOverview.font = .boldSystemFont(ofSize: 12)
-        movieOverview.snp.makeConstraints { make in
-            make.top.equalTo(movieYear.snp.bottomMargin).offset(16)
-            make.left.equalTo(movieImage.snp.right).offset(8)
-        }
-    }
+//    func makeMovieOverview() {
+//        movieOverview.lineBreakMode = .byTruncatingTail
+//        movieOverview.numberOfLines = 0
+//        movieOverview.textAlignment = .left
+//        movieOverview.minimumScaleFactor = 1
+//        movieOverview.adjustsFontSizeToFitWidth = true
+//        movieOverview.textColor = UIColor.black
+//        movieOverview.font = .systemFont(ofSize: 12)
+//        movieOverview.snp.makeConstraints { make in
+//            make.top.equalTo(movieYear.snp.bottomMargin).offset(48)
+//            make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
+//            make.left.equalTo(movieImage.snp.right).offset(8)
+//            make.right.equalToSuperview().offset(-40)
+//        }
+//    }
 
     func makeMovieRate() {
         movieRate.numberOfLines = 0
         movieRate.adjustsFontSizeToFitWidth = true
         movieRate.textColor = UIColor.black
-        movieRate.font = .boldSystemFont(ofSize: 12)
+        movieRate.font = .boldSystemFont(ofSize: 20)
         movieRate.snp.makeConstraints { make in
-            make.top.equalTo(movieFavButton.snp.bottomMargin).offset(24)
-            make.right.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-16)
+            make.left.equalTo(movieImage.snp.rightMargin).offset(16)
         }
     }
 
     func makeMovieFavButton() {
         movieFavButton.tintColor = UIColor.black
         movieFavButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 30, height: 30))
-            make.top.equalTo(movieTitle.snp.top).offset(16)
+            make.bottom.equalToSuperview().offset(-8)
             make.right.equalToSuperview().offset(-16)
         }
     }

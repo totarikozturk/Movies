@@ -13,11 +13,17 @@ class MovieDetailViewController: UIViewController {
     let detailImage = UIImageView()
     let detailTitle = UILabel()
     let detailDesc = UILabel()
+    let viewModal = MovieDetailViewModal()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureView()
+        getData()
+    }
+    
+    func getData() {
+        
     }
 
 }
