@@ -29,12 +29,13 @@ extension MoviesViewController {
         tableView.rowHeight = 120
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.movieCell)
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top).offset(116)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
+            make.edges.equalToSuperview()
+//            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top).offset(118)
+//            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
+//            make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
         }
     }
 

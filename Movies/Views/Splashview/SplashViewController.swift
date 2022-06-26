@@ -10,18 +10,12 @@ import UIKit
 class SplashViewController: UIViewController {
 
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    var apiService = ApiService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .lightGray
         startLoading()
-        apiService.getPopularMoviesData { (result) in
-            print(result)
-            self.stopLoading()
-            self.setTabBarController()
-        }
     }
 
 }

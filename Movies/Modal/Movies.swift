@@ -6,50 +6,26 @@
 //
 import Foundation
 
-// MARK: - Movie
-struct MoviesData: Codable {
-    let page: Int
-    let results: [Movie]
-    let totalPages, totalResults: Int
+struct MoviesData: Decodable {
+    let movies: [Movie]
 
-    enum CodingKeys: String, CodingKey {
-        case page, results
-        case totalPages = "total_pages"
-        case totalResults = "total_results"
+    private enum CodingKeys: String, CodingKey {
+        case movies = "results"
     }
 }
 
-// MARK: - Result
-struct Movie: Codable {
-    let adult: Bool
-    let backdropPath: String
-    let genreIDS: [Int]
-    let id: Int
-    let originalLanguage: OriginalLanguage
-    let originalTitle, overview: String
-    let popularity: Double
-    let posterPath, releaseDate, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
+struct Movie: Decodable {
 
-    enum CodingKeys: String, CodingKey {
-        case adult
-        case backdropPath = "backdrop_path"
-        case genreIDS = "genre_ids"
-        case id
-        case originalLanguage = "original_language"
-        case originalTitle = "original_title"
-        case overview, popularity
-        case posterPath = "poster_path"
-        case releaseDate = "release_date"
-        case title, video
-        case voteAverage = "vote_average"
-        case voteCount = "vote_count"
+    let title: String?
+    let year: String?
+    let rate: Double?
+    let posterImage: String?
+    let overview: String?
+
+    private enum CodingKeys: String, CodingKey {
+        case title, overview
+        case year = "release_date"
+        case rate = "vote_average"
+        case posterImage = "poster_path"
     }
-}
-
-enum OriginalLanguage: String, Codable {
-    case eng = "en"
-    case jap = "ja"
 }

@@ -15,6 +15,10 @@ extension SplashViewController {
         activityIndicator.style = UIActivityIndicatorView.Style.large
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.setTabBarController()
+            self.stopLoading()
+        }
     }
 
     func stopLoading() {
@@ -39,7 +43,9 @@ extension SplashViewController {
         }
 
         tabbarViewController.modalPresentationStyle = .fullScreen
-        present(tabbarViewController, animated: true)
+        DispatchQueue.main.async {
+            self.present(tabbarViewController, animated: true)
+        }
     }
 
 }
