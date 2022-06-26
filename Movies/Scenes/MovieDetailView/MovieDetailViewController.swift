@@ -21,9 +21,9 @@ class MovieDetailViewController: UIViewController {
         configureView()
         getData()
     }
-    
+
     func getData() {
-        
+
     }
 
 }

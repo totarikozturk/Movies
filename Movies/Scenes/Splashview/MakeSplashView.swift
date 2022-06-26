@@ -9,20 +9,34 @@ import UIKit
 
 extension SplashViewController {
 
-    func startLoading() {
+    func configureView() {
+        view.addSubview(activityIndicator)
+        startLoading()
+    }
+
+    func makeActivityIndicator() {
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = UIActivityIndicatorView.Style.large
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.setTabBarController()
-            self.stopLoading()
-        }
     }
 
-    func stopLoading() {
-        activityIndicator.stopAnimating()
+    func startLoading() {
+        makeActivityIndicator()
+        activityIndicator.startAnimating()
+        loadedData.fetchPopularMoviesData {
+            self.apiService.getPopularMoviesData { [weak self] (result) in
+                switch result {
+                case .success(let data):
+                    print("\(data) succes")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1 ) {
+                        self?.setTabBarController()
+                        self?.activityIndicator.stopAnimating()
+                    }
+                case.failure(let error):
+                    print("Error processing json data: \(error)")
+                }
+            }
+        }
     }
 
     func setTabBarController() {

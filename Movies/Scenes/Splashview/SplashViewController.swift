@@ -10,12 +10,14 @@ import UIKit
 class SplashViewController: UIViewController {
 
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    let apiService = ApiService()
+    let loadedData = MoviesViewModal()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .black
-        startLoading()
+        configureView()
     }
 
 }
