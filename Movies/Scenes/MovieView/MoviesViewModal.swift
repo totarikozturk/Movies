@@ -51,4 +51,8 @@ class MoviesViewModal {
         return popularMovies[indexPath.row]
     }
 
+    func didSelectedRowAt (indexPath: IndexPath) -> Movie {
+        return popularMovies[indexPath.row]
+    }
+
 }
