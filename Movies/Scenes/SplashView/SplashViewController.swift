@@ -10,6 +10,7 @@ import UIKit
 class SplashViewController: UIViewController {
 
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    let appTitle = UILabel()
     let apiService = ApiService()
     let loadedData = MoviesViewModal()
 

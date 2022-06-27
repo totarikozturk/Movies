@@ -13,18 +13,13 @@ class MoviesViewController: UIViewController {
     let tableView = UITableView()
     let searchBar = UISearchBar()
     private let viewModal = MoviesViewModal()
+    var indexPathValue = IndexPath()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureView()
         loadPopularMoviesData()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        updateTableViewData()
-//        loadPopularMoviesData()
     }
 
     func updateTableViewData() {
@@ -59,6 +54,15 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieDetailViewController = MovieDetailViewController()
+        movieDetailViewController.detailDesc.text = viewModal.cellForRowAt(indexPath: indexPath).overview
+        movieDetailViewController.detailTitle.text = viewModal.cellForRowAt(indexPath: indexPath).title
+        let url = URL(string: "https://image.tmdb.org/t/p/w300"
+                      + viewModal.cellForRowAt(indexPath: indexPath).posterImage!)
+        movieDetailViewController.detailImage.kf.setImage(with: url)
+        movieDetailViewController.detailYear.text = viewModal.cellForRowAt(indexPath: indexPath).year
+        let date: String = String(viewModal.cellForRowAt(indexPath: indexPath).rate!)
+        movieDetailViewController.detailRate.text = date
+
         self.navigationController?.navigationBar.isHidden = false
         movieDetailViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(movieDetailViewController, animated: true)

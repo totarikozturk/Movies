@@ -29,7 +29,7 @@ extension MoviesViewController {
         tableView.rowHeight = 160
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.movieCell)
-        tableView.separatorStyle = .singleLine
+        tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

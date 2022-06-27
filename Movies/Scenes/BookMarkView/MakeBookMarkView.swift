@@ -28,10 +28,7 @@ extension BookMarksViewController {
         tableView.register(BookMarkCell.self, forCellReuseIdentifier: BookMarkCell.BookmarkCell)
         tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.top).offset(116)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-8)
+            make.edges.equalToSuperview()
         }
     }
 

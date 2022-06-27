@@ -27,6 +27,19 @@ class MoviesViewModal {
         print(self.popularMovies.count)
     }
 
+    func convertDateFormatter(_ date: String?) -> String {
+        var fixDate = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let originalDate = date {
+            if let newDate = dateFormatter.date(from: originalDate) {
+                dateFormatter.dateFormat = "dd.MM.yyyy"
+                fixDate = dateFormatter.string(from: newDate)
+            }
+        }
+        return fixDate
+    }
+
     func numberOfRowsInSection(section: Int) -> Int {
         if popularMovies.count != 0 {
             return popularMovies.count

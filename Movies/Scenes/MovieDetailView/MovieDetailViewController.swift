@@ -10,20 +10,18 @@ import UIKit
 class MovieDetailViewController: UIViewController {
 
     let appearance = UINavigationBarAppearance()
-    let detailImage = UIImageView()
+    var detailImage = UIImageView()
     let detailTitle = UILabel()
+    let detailYearTitle = UILabel()
+    let detailYear = UILabel()
+    let detailRateTitle = UILabel()
+    let detailRate = UILabel()
     let detailDesc = UILabel()
-    let viewModal = MovieDetailViewModal()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureView()
-        getData()
-    }
-
-    func getData() {
-
     }
 
 }

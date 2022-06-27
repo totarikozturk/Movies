@@ -11,6 +11,8 @@ extension SplashViewController {
 
     func configureView() {
         view.addSubview(activityIndicator)
+        view.addSubview(appTitle)
+        makeAppTitle()
         startLoading()
     }
 
@@ -20,6 +22,16 @@ extension SplashViewController {
         activityIndicator.style = UIActivityIndicatorView.Style.large
     }
 
+    func makeAppTitle() {
+        appTitle.text = "Movies"
+        appTitle.textColor = .white
+        appTitle.font = .systemFont(ofSize: 70, weight: .bold )
+        appTitle.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(72)
+            make.centerX.equalTo(view.center.x)
+        }
+    }
+
     func startLoading() {
         makeActivityIndicator()
         activityIndicator.startAnimating()
@@ -27,7 +39,7 @@ extension SplashViewController {
             self.apiService.getPopularMoviesData { [weak self] (result) in
                 switch result {
                 case .success(let data):
-                    print("\(data) succes")
+                    _ = data.movies
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1 ) {
                         self?.setTabBarController()
                         self?.activityIndicator.stopAnimating()
