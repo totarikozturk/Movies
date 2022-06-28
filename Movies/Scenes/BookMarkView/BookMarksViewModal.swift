@@ -5,8 +5,36 @@
 //  Created by TarıkOzturk on 22.06.2022.
 //
 
-import UIKit
+import Foundation
 
 struct BookMarksViewModal {
+    static var shared = BookMarksViewModal()
+    var bookMarksData = Movie()
+    var bookMarks = [Movie]()
+//
+    mutating func getBookMarksData(movie: Movie) {
+        BookMarksViewModal.shared.bookMarksData = movie
+    }
+
+    func convertDate(_ date: String?) -> String {
+        var fixDate = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let originalDate = date {
+            if let newDate = dateFormatter.date(from: originalDate) {
+                dateFormatter.dateFormat = "dd.MM.yyyy"
+                fixDate = dateFormatter.string(from: newDate)
+            }
+        }
+        return fixDate
+    }
+
+    func numberOfRowsInSection(section: Int) -> Int {
+        return bookMarks.count
+    }
+
+    func cellForRowAt (indexPath: IndexPath) -> Movie {
+        return bookMarks[indexPath.row]
+    }
 
 }

@@ -23,7 +23,7 @@ extension BookMarksViewController {
     func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 120
+        tableView.rowHeight = 160
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(BookMarkCell.self, forCellReuseIdentifier: BookMarkCell.BookmarkCell)
         tableView.separatorStyle = .none

@@ -11,7 +11,7 @@ struct MovieDetailViewModal {
     static var shared = MovieDetailViewModal()
     var movieDetailData = Movie()
 
-    mutating func getDetailMovieData(movie: Movie) {
+    func getDetailMovieData(movie: Movie) {
         MovieDetailViewModal.shared.movieDetailData = movie
     }
 

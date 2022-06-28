@@ -11,7 +11,10 @@ import Kingfisher
 class MovieCell: UITableViewCell {
 
     static let movieCell = "MovieCell"
+    var movieDataForBookMark = Movie()
     private let viewModal = MoviesViewModal()
+    private var bookMarkViewModal = BookMarksViewModal()
+    private var bookVC = BookMarksViewController()
 
     let movieImage = UIImageView()
     let movieTitle = UILabel()
@@ -29,10 +32,15 @@ class MovieCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @objc func favButtonTapped(_ sender: UIButton) {
+        bookMarkViewModal.getBookMarksData(movie: movieDataForBookMark)
+    }
+
     func setCellWithValuesOf(_ movie: Movie) {
         updateUI(title: movie.title, releaseDate: movie.year,
                  rating: movie.rate, overView: movie.overview,
                  poster: movie.posterImage)
+        movieDataForBookMark = movie
     }
 
     private func updateUI(title: String?, releaseDate: String?, rating: Double?,
@@ -45,7 +53,8 @@ class MovieCell: UITableViewCell {
         self.movieYear.text = viewModal.convertDateFormatter(releaseDate)
         guard let rate = rating else { return }
         self.movieRate.text = String(rate)
-        self.movieFavButton.setImage(UIImage(systemName: "star"), for: .normal)
+        self.movieFavButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        self.movieFavButton.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
     }
 
 }

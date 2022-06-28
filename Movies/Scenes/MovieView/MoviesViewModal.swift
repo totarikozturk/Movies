@@ -24,7 +24,6 @@ class MoviesViewModal {
                 print("Error processing json data: \(error)")
             }
         }
-        print(self.popularMovies.count)
     }
 
     func convertDateFormatter(_ date: String?) -> String {

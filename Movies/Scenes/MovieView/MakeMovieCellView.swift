@@ -82,6 +82,7 @@ extension MovieCell {
     }
 
     func makeMovieFavButton() {
+        movieFavButton.translatesAutoresizingMaskIntoConstraints = false
         movieFavButton.tintColor = UIColor.black
         movieFavButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-8)
