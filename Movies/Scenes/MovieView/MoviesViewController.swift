@@ -12,7 +12,8 @@ class MoviesViewController: UIViewController {
     let appearance = UINavigationBarAppearance()
     let tableView = UITableView()
     let searchBar = UISearchBar()
-    private let viewModal = MoviesViewModal()
+    private let movieViewModal = MoviesViewModal()
+    private var detailViewModal = MovieDetailViewModal()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class MoviesViewController: UIViewController {
     }
 
      func loadPopularMoviesData() {
-        viewModal.fetchPopularMoviesData { [weak self] in
+        movieViewModal.fetchPopularMoviesData { [weak self] in
             self?.tableView.dataSource = self
             self?.tableView.reloadData()
         }
@@ -39,32 +40,21 @@ class MoviesViewController: UIViewController {
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModal.numberOfRowsInSection(section: section)
+        return movieViewModal.numberOfRowsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: MovieCell.movieCell,
-            for: indexPath) as? MovieCell else { return UITableViewCell() }
-        let movie = viewModal.cellForRowAt(indexPath: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.movieCell,
+                                                       for: indexPath) as? MovieCell else { return UITableViewCell() }
+        let movie = movieViewModal.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(movie)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieDetailViewController = MovieDetailViewController()
-        let movie = viewModal.cellForRowAt(indexPath: indexPath)
-        movieDetailViewController.getDetailMovieData(movie: movie)
-        print(movie)
-//        movieDetailViewController.detailDesc.text = viewModal.cellForRowAt(indexPath: indexPath).overview
-//        movieDetailViewController.detailTitle.text = viewModal.cellForRowAt(indexPath: indexPath).title
-//        let url = URL(string: "https://image.tmdb.org/t/p/w300"
-//                      + viewModal.cellForRowAt(indexPath: indexPath).posterImage!)
-//        movieDetailViewController.detailImage.kf.setImage(with: url)
-//        movieDetailViewController.detailYear.text = viewModal.cellForRowAt(indexPath: indexPath).year
-//        let date: String = String(viewModal.cellForRowAt(indexPath: indexPath).rate!)
-//        movieDetailViewController.detailRate.text = date
-
+        let movie = movieViewModal.didSelectedRowAt(indexPath: indexPath)
+        detailViewModal.getDetailMovieData(movie: movie)
         self.navigationController?.navigationBar.isHidden = false
         movieDetailViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(movieDetailViewController, animated: true)
