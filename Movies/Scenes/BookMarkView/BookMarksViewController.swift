@@ -11,23 +11,35 @@ class BookMarksViewController: UIViewController {
     let appearance = UINavigationBarAppearance()
     let tableView = UITableView()
     private var viewModal = BookMarksViewModal()
-    var bookMarksArray = [Movie]()
+    var bookMarksArray: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        bookMarksArray.removeAll()
+//        UserDefaults.standard.removeObject(forKey: Code.codableKey)
         configureView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateTableViewData()
     }
 
     func updateTableViewData() {
-        DispatchQueue.main.async {
             self.load()
-        }
+//        let data = BookMarksViewModal.shared.bookMarksData
+//            bookMarksArray.append(data)
+//            save()
+//            tableView.reloadData()
+//            print(bookMarksArray.count)
+    }
+
+    func addBookmark() {
+        let data = BookMarksViewModal.shared.bookMarksData
+                bookMarksArray.append(data)
+                save()
+            tableView.reloadData()
+        print(bookMarksArray.count)
     }
 
 }
@@ -42,6 +54,7 @@ extension BookMarksViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: BookMarkCell.BookmarkCell,
             for: indexPath) as? BookMarkCell else { return UITableViewCell() }
+
         let movie = bookMarksArray[indexPath.row]
         guard let posterString = movie.posterImage else { return UITableViewCell() }
         let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
@@ -50,6 +63,7 @@ extension BookMarksViewController: UITableViewDelegate, UITableViewDataSource {
         cell.movieYear.text = viewModal.convertDate(movie.year)
         guard let rate = movie.rate else { return UITableViewCell() }
         cell.movieRate.text = String(rate)
+
         return cell
     }
 

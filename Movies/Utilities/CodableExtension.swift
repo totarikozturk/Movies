@@ -11,7 +11,6 @@ extension BookMarksViewController {
     func save() {
         guard let data = try? JSONEncoder().encode(bookMarksArray) else { return }
         UserDefaults.standard.set(data, forKey: Code.codableKey)
-        print(bookMarksArray.count)
     }
 
     func load() {
