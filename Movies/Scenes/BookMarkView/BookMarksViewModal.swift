@@ -10,8 +10,7 @@ import Foundation
 struct BookMarksViewModal {
     static var shared = BookMarksViewModal()
     var bookMarksData = Movie()
-    var bookMarks = [Movie]()
-//
+
     mutating func getBookMarksData(movie: Movie) {
         BookMarksViewModal.shared.bookMarksData = movie
     }
@@ -27,14 +26,6 @@ struct BookMarksViewModal {
             }
         }
         return fixDate
-    }
-
-    func numberOfRowsInSection(section: Int) -> Int {
-        return bookMarks.count
-    }
-
-    func cellForRowAt (indexPath: IndexPath) -> Movie {
-        return bookMarks[indexPath.row]
     }
 
 }

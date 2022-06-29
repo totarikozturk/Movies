@@ -31,9 +31,16 @@ class MovieCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    // TODO: - bookmarksarray doesn't count
     @objc func favButtonTapped(_ sender: UIButton) {
         bookMarkViewModal.getBookMarksData(movie: movieDataForBookMark)
+        let data = Movie(title: movieDataForBookMark.title,
+                         year: movieDataForBookMark.year,
+                         rate: movieDataForBookMark.rate,
+                         posterImage: movieDataForBookMark.posterImage,
+                         overview: movieDataForBookMark.overview)
+        bookVC.bookMarksArray.append(data)
+        bookVC.save()
     }
 
     func setCellWithValuesOf(_ movie: Movie) {
