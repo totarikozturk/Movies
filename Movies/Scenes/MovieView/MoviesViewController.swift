@@ -20,6 +20,7 @@ class MoviesViewController: UIViewController {
 
         configureView()
         loadPopularMoviesData()
+        loadSearchMoviesData()
     }
 
     func updateTableViewData() {
@@ -34,6 +35,12 @@ class MoviesViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
+
+    func loadSearchMoviesData() {
+        movieViewModal.fetchSearchMoviesData { [weak self] in
+            self?.searchBar.delegate = self
+       }
+   }
 
 }
 

@@ -11,6 +11,8 @@ class MoviesViewModal {
 
     private var apiService = ApiService()
     private var popularMovies = [Movie]()
+    private var apiGenreService = ApiGenreService()
+    private var searchMovies = [Genre]()
 
     func fetchPopularMoviesData(completion: @escaping () -> Void) {
 
@@ -20,6 +22,21 @@ class MoviesViewModal {
             case .success(let listOf):
                 self?.popularMovies = listOf.movies
                 completion()
+            case.failure(let error):
+                print("Error processing json data: \(error)")
+            }
+        }
+    }
+
+    func fetchSearchMoviesData(completion: @escaping () -> Void) {
+
+        apiGenreService.getSearchMoviesData { [weak self] (result) in
+
+            switch result {
+            case .success(let listOf):
+                self?.searchMovies = listOf.genres
+                completion()
+//                print(self?.searchMovies)
             case.failure(let error):
                 print("Error processing json data: \(error)")
             }
