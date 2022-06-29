@@ -11,11 +11,9 @@ class BookMarksViewController: UIViewController {
     let appearance = UINavigationBarAppearance()
     let tableView = UITableView()
     private var viewModal = BookMarksViewModal()
-    var bookMarksArray: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        bookMarksArray.removeAll()
 //        UserDefaults.standard.removeObject(forKey: Code.codableKey)
         configureView()
     }
@@ -26,7 +24,9 @@ class BookMarksViewController: UIViewController {
     }
 
     func updateTableViewData() {
-            self.load()
+        viewModal.addBookmark()
+        viewModal.load()
+        tableView.reloadData()
 //        let data = BookMarksViewModal.shared.bookMarksData
 //            bookMarksArray.append(data)
 //            save()
@@ -34,20 +34,12 @@ class BookMarksViewController: UIViewController {
 //            print(bookMarksArray.count)
     }
 
-    func addBookmark() {
-        let data = BookMarksViewModal.shared.bookMarksData
-                bookMarksArray.append(data)
-                save()
-            tableView.reloadData()
-        print(bookMarksArray.count)
-    }
-
 }
 
 extension BookMarksViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookMarksArray.count
+        return viewModal.numberOfRowsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +47,7 @@ extension BookMarksViewController: UITableViewDelegate, UITableViewDataSource {
             withIdentifier: BookMarkCell.BookmarkCell,
             for: indexPath) as? BookMarkCell else { return UITableViewCell() }
 
-        let movie = bookMarksArray[indexPath.row]
+        let movie = viewModal.cellForRowAt(indexPath: indexPath)
         guard let posterString = movie.posterImage else { return UITableViewCell() }
         let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
         cell.movieImage.kf.setImage(with: url)
