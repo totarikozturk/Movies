@@ -14,6 +14,7 @@ class BookMarksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // TODO: below line code writed for when need to clear bookmark data
 //        UserDefaults.standard.removeObject(forKey: Code.codableKey)
         configureView()
     }
@@ -25,13 +26,9 @@ class BookMarksViewController: UIViewController {
 
     func updateTableViewData() {
         viewModal.addBookmark()
+        BookMarksViewModal.shared.favButtonTapped = false
         viewModal.load()
         tableView.reloadData()
-//        let data = BookMarksViewModal.shared.bookMarksData
-//            bookMarksArray.append(data)
-//            save()
-//            tableView.reloadData()
-//            print(bookMarksArray.count)
     }
 
 }
@@ -48,14 +45,7 @@ extension BookMarksViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath) as? BookMarkCell else { return UITableViewCell() }
 
         let movie = viewModal.cellForRowAt(indexPath: indexPath)
-        guard let posterString = movie.posterImage else { return UITableViewCell() }
-        let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
-        cell.movieImage.kf.setImage(with: url)
-        cell.movieTitle.text = movie.title
-        cell.movieYear.text = viewModal.convertDate(movie.year)
-        guard let rate = movie.rate else { return UITableViewCell() }
-        cell.movieRate.text = String(rate)
-
+        cell.setCellWithValuesOf(movie)
         return cell
     }
 

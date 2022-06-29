@@ -8,6 +8,7 @@
 import Foundation
 
 struct MovieDetailViewModal {
+
     static var shared = MovieDetailViewModal()
     var movieDetailData = Movie()
 

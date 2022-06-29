@@ -26,16 +26,16 @@ class MovieDetailViewController: UIViewController {
         updateDetailUI()
     }
 
-        func updateDetailUI() {
-            let movie = MovieDetailViewModal.shared.movieDetailData
-            guard let posterString = movie.posterImage else { return }
-            let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
-            detailImage.kf.setImage(with: url)
-            detailTitle.text = movie.title
-            detailYear.text = viewModal.convertDate(movie.year)
-            guard let rate = movie.rate else { return }
-            detailRate.text = String(rate)
-            detailDesc.text = movie.overview
-        }
+    func updateDetailUI() {
+        let movie = MovieDetailViewModal.shared.movieDetailData
+        guard let posterString = movie.posterImage else { return }
+        let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
+        detailImage.kf.setImage(with: url)
+        detailTitle.text = movie.title
+        detailYear.text = viewModal.convertDate(movie.year)
+        guard let rate = movie.rate else { return }
+        detailRate.text = String(rate)
+        detailDesc.text = movie.overview
+    }
 
 }

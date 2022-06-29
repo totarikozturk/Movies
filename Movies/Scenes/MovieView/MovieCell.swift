@@ -33,6 +33,7 @@ class MovieCell: UITableViewCell {
 
     @objc func favButtonTapped(_ sender: UIButton) {
         bookMarkViewModal.getBookMarksData(movie: movieDataForBookMark)
+        BookMarksViewModal.shared.favButtonTapped = true
     }
 
     func setCellWithValuesOf(_ movie: Movie) {
