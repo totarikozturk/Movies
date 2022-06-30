@@ -26,7 +26,7 @@ class BookMarksViewController: UIViewController {
 
     func updateTableViewData() {
         viewModal.addBookmark()
-        BookMarksViewModal.shared.favButtonTapped = false
+        Singleton.favButtonTapped = false
         viewModal.load()
         tableView.reloadData()
     }

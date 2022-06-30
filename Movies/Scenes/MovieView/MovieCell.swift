@@ -11,9 +11,8 @@ import Kingfisher
 class MovieCell: UITableViewCell {
 
     static let movieCell = "MovieCell"
-    var movieDataForBookMark = Movie()
+    private var movieDataForBookMark = Movie()
     private let viewModal = MoviesViewModal()
-    private var bookMarkViewModal = BookMarksViewModal()
 
     let movieImage = UIImageView()
     let movieTitle = UILabel()
@@ -32,8 +31,8 @@ class MovieCell: UITableViewCell {
     }
 
     @objc func favButtonTapped(_ sender: UIButton) {
-        bookMarkViewModal.getBookMarksData(movie: movieDataForBookMark)
-        BookMarksViewModal.shared.favButtonTapped = true
+        Singleton.movieBookmarkData = movieDataForBookMark
+        Singleton.favButtonTapped = true
     }
 
     func setCellWithValuesOf(_ movie: Movie) {

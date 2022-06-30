@@ -9,21 +9,18 @@ import Foundation
 
 struct BookMarksViewModal {
 
-    static var shared = BookMarksViewModal()
-    var bookMarksData = Movie()
-    var favButtonTapped: Bool = false
     private var bookMarksArray: [Movie] = []
 
     mutating func getBookMarksData(movie: Movie) {
-        BookMarksViewModal.shared.bookMarksData = movie
+        Singleton.movieBookmarkData = movie
     }
 
     mutating func addBookmark() {
-        let data = BookMarksViewModal.shared.bookMarksData
-            if BookMarksViewModal.shared.favButtonTapped {
+        let data =  Singleton.movieBookmarkData
+            if  Singleton.favButtonTapped {
                 self.bookMarksArray.append(data)
                 save()
-                BookMarksViewModal.shared.favButtonTapped = false
+                Singleton.favButtonTapped = false
         }
     }
 
