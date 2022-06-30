@@ -27,7 +27,7 @@ class MovieDetailViewController: UIViewController {
     }
 
     func updateDetailUI() {
-        let movie = MovieDetailViewModal.shared.movieDetailData
+        let movie = viewModal.movieData()
         guard let posterString = movie.posterImage else { return }
         let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
         detailImage.kf.setImage(with: url)

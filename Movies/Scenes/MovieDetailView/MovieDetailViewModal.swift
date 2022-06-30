@@ -9,11 +9,11 @@ import Foundation
 
 struct MovieDetailViewModal {
 
-    static var shared = MovieDetailViewModal()
-    var movieDetailData = Movie()
+    private var movies = Movie()
 
-    func getDetailMovieData(movie: Movie) {
-        MovieDetailViewModal.shared.movieDetailData = movie
+    mutating func movieData() -> Movie {
+         self.movies = Singleton.movieDetailData
+        return movies
     }
 
     func convertDate(_ date: String?) -> String {

@@ -13,7 +13,6 @@ class MoviesViewController: UIViewController {
     let tableView = UITableView()
     let searchBar = UISearchBar()
     private let movieViewModal = MoviesViewModal()
-    private var detailViewModal = MovieDetailViewModal()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +60,7 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieDetailViewController = MovieDetailViewController()
         let movie = movieViewModal.didSelectedRowAt(indexPath: indexPath)
-        detailViewModal.getDetailMovieData(movie: movie)
+        Singleton.movieDetailData = movie
         self.navigationController?.navigationBar.isHidden = false
         movieDetailViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(movieDetailViewController, animated: true)
