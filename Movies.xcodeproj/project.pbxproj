@@ -31,6 +31,7 @@
 		D0CFD8AA286C8F4100681C5F /* MakeBookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8A9286C8F4100681C5F /* MakeBookMarkCell.swift */; };
 		D0CFD8AE286CB5F700681C5F /* GenreModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8AD286CB5F700681C5F /* GenreModal.swift */; };
 		D0CFD8B0286CB69800681C5F /* ApiGenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8AF286CB69800681C5F /* ApiGenreService.swift */; };
+		D0CFD8B6286D80E200681C5F /* SplashViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8B5286D80E200681C5F /* SplashViewModal.swift */; };
 		D0D323FE2867C8980028629A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D323FD2867C8980028629A /* ApiService.swift */; };
 		D0D32401286A31450028629A /* MakeMovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D32400286A31450028629A /* MakeMovieCellView.swift */; };
 		D0E36CBE286AFD7D00DC6993 /* MovieDetailViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E36CBD286AFD7D00DC6993 /* MovieDetailViewModal.swift */; };
@@ -61,6 +62,7 @@
 		D0CFD8A9286C8F4100681C5F /* MakeBookMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBookMarkCell.swift; sourceTree = "<group>"; };
 		D0CFD8AD286CB5F700681C5F /* GenreModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModal.swift; sourceTree = "<group>"; };
 		D0CFD8AF286CB69800681C5F /* ApiGenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGenreService.swift; sourceTree = "<group>"; };
+		D0CFD8B5286D80E200681C5F /* SplashViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModal.swift; sourceTree = "<group>"; };
 		D0D323FD2867C8980028629A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D0D32400286A31450028629A /* MakeMovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovieCellView.swift; sourceTree = "<group>"; };
 		D0E36CBD286AFD7D00DC6993 /* MovieDetailViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModal.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				D088CD442861B1FA00BE9168 /* MakeSplashView.swift */,
 				D01C581C285F33350050FCE5 /* SplashViewController.swift */,
+				D0CFD8B5286D80E200681C5F /* SplashViewModal.swift */,
 			);
 			path = SplashView;
 			sourceTree = "<group>";
@@ -153,9 +156,9 @@
 				D0C63C7E285E6903007B1FDB /* App */,
 				D0C63C80285E694B007B1FDB /* Modal */,
 				D0C63C7F285E690E007B1FDB /* Resources */,
+				D0C63C82285E6958007B1FDB /* Scenes */,
 				D0D323FF2867EBA00028629A /* Services */,
 				D01C5829285FADA40050FCE5 /* Utilities */,
-				D0C63C82285E6958007B1FDB /* Scenes */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -181,8 +184,8 @@
 		D0C63C80285E694B007B1FDB /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				D0965A8E2864ECE60047AF0F /* MoviesModal.swift */,
 				D0CFD8AD286CB5F700681C5F /* GenreModal.swift */,
+				D0965A8E2864ECE60047AF0F /* MoviesModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -201,9 +204,9 @@
 		D0D323FF2867EBA00028629A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D0CFD8AF286CB69800681C5F /* ApiGenreService.swift */,
 				D0965A902864FFC10047AF0F /* ApiKey.swift */,
 				D0D323FD2867C8980028629A /* ApiService.swift */,
-				D0CFD8AF286CB69800681C5F /* ApiGenreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				D0CFD8AA286C8F4100681C5F /* MakeBookMarkCell.swift in Sources */,
 				D01C5821285F5B470050FCE5 /* BookMarksViewController.swift in Sources */,
 				D0C63C6B285E68BF007B1FDB /* AppDelegate.swift in Sources */,
+				D0CFD8B6286D80E200681C5F /* SplashViewModal.swift in Sources */,
 				D0965A912864FFC10047AF0F /* ApiKey.swift in Sources */,
 				D01C5830285FB5770050FCE5 /* MakeMovieView.swift in Sources */,
 				D088CD452861B1FA00BE9168 /* MakeSplashView.swift in Sources */,

@@ -35,20 +35,6 @@ extension SplashViewController {
     func startLoading() {
         makeActivityIndicator()
         activityIndicator.startAnimating()
-        loadedData.fetchPopularMoviesData {
-            self.apiService.getPopularMoviesData { [weak self] (result) in
-                switch result {
-                case .success(let data):
-                    _ = data.movies
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1 ) {
-                        self?.setTabBarController()
-                        self?.activityIndicator.stopAnimating()
-                    }
-                case.failure(let error):
-                    print("Error processing json data: \(error)")
-                }
-            }
-        }
     }
 
     func setTabBarController() {

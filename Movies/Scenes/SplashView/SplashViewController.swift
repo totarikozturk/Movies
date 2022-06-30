@@ -11,14 +11,23 @@ class SplashViewController: UIViewController {
 
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let appTitle = UILabel()
-    let apiService = ApiService()
-    let loadedData = MoviesViewModal()
+    private let viewModal = SplashViewModal()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .black
         configureView()
+        waitLoad()
+    }
+
+    func waitLoad() {
+        viewModal.fetchMoviesData { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1 ) {
+                self?.setTabBarController()
+                self?.activityIndicator.stopAnimating()
+            }
+        }
     }
 
 }
