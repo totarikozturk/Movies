@@ -11,11 +11,12 @@ class ApiGenreService {
 
     private var dataTask: URLSessionDataTask?
 
-    func getSearchMoviesData(completion: @escaping (Result<GenreMovie, Error>) -> Void ) {
+    func getSearchMoviesData(completion: @escaping (Result<SearchMovie, Error>) -> Void ) {
 
-        let searchMoviesURL = ApiKey.searchUrl
-
-        guard let url = URL(string: searchMoviesURL) else { return }
+        let popularMoviesURL = ApiKey.url
+        guard let searh = Singleton.searchString else { return }
+        print(popularMoviesURL + searh)
+        guard let url = URL(string: popularMoviesURL + searh) else { return }
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
 
             if let error = error {
@@ -35,7 +36,7 @@ class ApiGenreService {
 
             do {
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(GenreMovie.self, from: data)
+                let jsonData = try decoder.decode(SearchMovie.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(jsonData))
                 }

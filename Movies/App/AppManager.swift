@@ -12,4 +12,6 @@ class Singleton {
     static var movieDetailData = Movie()
     static var movieBookmarkData = Movie()
     static var favButtonTapped = false
+    static var searchString: String?
+    static var popularMovies = [Movie]()
 }

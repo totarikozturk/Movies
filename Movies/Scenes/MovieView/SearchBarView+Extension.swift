@@ -30,8 +30,13 @@ extension MoviesViewController {
         navigationItem.titleView = shouldShow ? searchBar : nil
     }
 
-}
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           if !searchText.isEmpty {
+               Singleton.searchString = searchText
+           }
+       }
 
+}
 extension MoviesViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
