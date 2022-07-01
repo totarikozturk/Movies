@@ -11,7 +11,7 @@ class MoviesViewController: UIViewController {
 
     let appearance = UINavigationBarAppearance()
     let tableView = UITableView()
-    let searchBar = UISearchBar()
+    let searchBar = UISearchController()
     private let viewModal = MoviesViewModal()
 
     override func viewDidLoad() {
@@ -19,12 +19,10 @@ class MoviesViewController: UIViewController {
 
         configureView()
         updateTableViewData()
-        loadSearchMoviesData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
     }
 
     func updateTableViewData() {
@@ -32,11 +30,6 @@ class MoviesViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    func loadSearchMoviesData() {
-        viewModal.fetchSearchMoviesData {
-            self.searchBar.delegate = self
-        }
-   }
 
 }
 
@@ -63,4 +56,14 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(movieDetailViewController, animated: true)
     }
 
+}
+
+extension MoviesViewController: UISearchBarDelegate, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text,
+                      text.trimmingCharacters(in: CharacterSet.whitespaces).count >= 1  else {return}
+        viewModal.fetchSearchMoviesData(for: text) {
+
+        }
+    }
 }

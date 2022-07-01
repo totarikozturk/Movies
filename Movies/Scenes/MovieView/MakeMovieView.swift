@@ -11,6 +11,7 @@ extension MoviesViewController {
 
     func configureView() {
         drawDesign()
+        makeSearchBar()
         makeTableView()
         navigationBarAppearance()
     }
@@ -19,8 +20,13 @@ extension MoviesViewController {
         view.backgroundColor = .purple
         tableView.backgroundColor = .lightGray
         view.addSubview(tableView)
-        searchBar.sizeToFit()
-        searchBar.delegate = self
+    }
+
+    func makeSearchBar() {
+        searchBar.searchBar.searchBarStyle = .prominent
+        searchBar.searchBar.placeholder = "Enter the movie name"
+        searchBar.searchResultsUpdater = self
+        navigationItem.searchController = searchBar
     }
 
     func makeTableView() {
@@ -45,7 +51,6 @@ extension MoviesViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Movies"
         navigationController?.navigationBar.tintColor = .black
-        showSearchBarButton(shouldShow: true)
     }
 
 }

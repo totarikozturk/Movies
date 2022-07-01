@@ -14,7 +14,6 @@
 		D01C5821285F5B470050FCE5 /* BookMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C5820285F5B470050FCE5 /* BookMarksViewController.swift */; };
 		D01C582E285FB2E80050FCE5 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C582D285FB2E80050FCE5 /* MovieCell.swift */; };
 		D01C5830285FB5770050FCE5 /* MakeMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C582F285FB5770050FCE5 /* MakeMovieView.swift */; };
-		D088CD402861A81400BE9168 /* SearchBarView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088CD3F2861A81400BE9168 /* SearchBarView+Extension.swift */; };
 		D088CD452861B1FA00BE9168 /* MakeSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088CD442861B1FA00BE9168 /* MakeSplashView.swift */; };
 		D088CD472861B32A00BE9168 /* MakeMovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088CD462861B32A00BE9168 /* MakeMovieDetailView.swift */; };
 		D088CD492861B55B00BE9168 /* MakeBookMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088CD482861B55B00BE9168 /* MakeBookMarkView.swift */; };
@@ -45,7 +44,6 @@
 		D01C5820285F5B470050FCE5 /* BookMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksViewController.swift; sourceTree = "<group>"; };
 		D01C582D285FB2E80050FCE5 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		D01C582F285FB5770050FCE5 /* MakeMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovieView.swift; sourceTree = "<group>"; };
-		D088CD3F2861A81400BE9168 /* SearchBarView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBarView+Extension.swift"; sourceTree = "<group>"; };
 		D088CD442861B1FA00BE9168 /* MakeSplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeSplashView.swift; sourceTree = "<group>"; };
 		D088CD462861B32A00BE9168 /* MakeMovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovieDetailView.swift; sourceTree = "<group>"; };
 		D088CD482861B55B00BE9168 /* MakeBookMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBookMarkView.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				D01C582D285FB2E80050FCE5 /* MovieCell.swift */,
 				D0C63C6E285E68BF007B1FDB /* MoviesViewController.swift */,
 				D088CD5428630CC200BE9168 /* MoviesViewModal.swift */,
-				D088CD3F2861A81400BE9168 /* SearchBarView+Extension.swift */,
 			);
 			path = MovieView;
 			sourceTree = "<group>";
@@ -325,7 +322,6 @@
 				D088CD452861B1FA00BE9168 /* MakeSplashView.swift in Sources */,
 				D0C63C6D285E68BF007B1FDB /* SceneDelegate.swift in Sources */,
 				D0965A8D2864D5080047AF0F /* keyExtension.swift in Sources */,
-				D088CD402861A81400BE9168 /* SearchBarView+Extension.swift in Sources */,
 				D0CFD8B0286CB69800681C5F /* ApiGenreService.swift in Sources */,
 				D088CD472861B32A00BE9168 /* MakeMovieDetailView.swift in Sources */,
 				D0965A8F2864ECE60047AF0F /* MoviesModal.swift in Sources */,

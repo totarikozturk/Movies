@@ -11,14 +11,10 @@ class ApiGenreService {
 
     private var dataTask: URLSessionDataTask?
 
-    func getSearchMoviesData(completion: @escaping (Result<SearchMovie, Error>) -> Void ) {
-
-        let popularMoviesURL = ApiKey.url
-        guard let searh = Singleton.searchString else { return }
-        print(popularMoviesURL + searh)
-        guard let url = URL(string: popularMoviesURL + searh) else { return }
+    func getSearchMoviesData(for query: String, completion: @escaping (Result<SearchMovie, Error>) -> Void ) {
+        let searchMoviesURL = ApiKey.searchUrl
+        guard let url = URL(string: searchMoviesURL + query) else { return }
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-
             if let error = error {
                 completion(.failure(error))
                 print("DataTask error: \(error.localizedDescription)")

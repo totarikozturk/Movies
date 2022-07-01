@@ -14,14 +14,13 @@ class MoviesViewModal {
     private var searchMovies = [Search]()
     private var movieSearchSucces: Bool = false
 
-    func fetchSearchMoviesData(for completion: @escaping () -> Void) {
-
-        apiGenreService.getSearchMoviesData { [weak self] (result) in
+    func fetchSearchMoviesData(for searchString: String, completion: @escaping () -> Void) {
+        apiGenreService.getSearchMoviesData(for: searchString) { (result) in
             switch result {
             case .success(let listOf):
-                self?.searchMovies = listOf.results
+                self.searchMovies = listOf.results
+                print(self.searchMovies)
                 completion()
-                print(self?.searchMovies as Any)
             case.failure(let error):
                 print("Error processing json data: \(error)")
             }

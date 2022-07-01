@@ -12,12 +12,9 @@ class ApiService {
     private var dataTask: URLSessionDataTask?
 
     func getPopularMoviesData(completion: @escaping (Result<MoviesData, Error>) -> Void ) {
-
         let popularMoviesURL = ApiKey.url
-
         guard let url = URL(string: popularMoviesURL) else { return }
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-
             if let error = error {
                 completion(.failure(error))
                 print("DataTask error: \(error.localizedDescription)")
@@ -32,7 +29,6 @@ class ApiService {
                 print("Empty Data")
                 return
             }
-
             do {
                 let decoder = JSONDecoder()
                 let jsonData = try decoder.decode(MoviesData.self, from: data)
