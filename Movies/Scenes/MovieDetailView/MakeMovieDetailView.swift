@@ -33,6 +33,8 @@ extension MovieDetailViewController {
     }
 
     func makeDetailImageView() {
+        detailImage.layer.cornerRadius = 16
+        detailImage.clipsToBounds = true
         detailImage.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(80)

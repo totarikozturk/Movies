@@ -38,6 +38,8 @@ extension MovieCell {
     }
 
     func makeMovieImage() {
+        movieImage.layer.cornerRadius = 16
+        movieImage.clipsToBounds = true
         movieImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-16)
@@ -71,13 +73,17 @@ extension MovieCell {
     }
 
     func makeMovieRate() {
+        movieRate.layer.cornerRadius = 8
+        movieRate.layer.borderWidth = 1
         movieRate.numberOfLines = 0
         movieRate.adjustsFontSizeToFitWidth = true
         movieRate.textColor = UIColor.black
-        movieRate.font = .boldSystemFont(ofSize: 20)
+        movieRate.font = .systemFont(ofSize: 20)
+        movieRate.textAlignment = .center
         movieRate.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-16)
             make.left.equalTo(movieImage.snp.rightMargin).offset(16)
+            make.right.equalTo(movieFavButton.snp.left).offset(-200)
         }
     }
 

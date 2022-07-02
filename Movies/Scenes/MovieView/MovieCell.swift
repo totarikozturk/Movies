@@ -52,7 +52,7 @@ class MovieCell: UITableViewCell {
         self.movieYear.text = viewModal.convertDateFormatter(releaseDate)
         guard let rate = rating else { return }
         self.movieRate.text = String(rate)
-        self.movieFavButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        self.movieFavButton.setImage(UIImage(systemName: "star"), for: .normal)
         self.movieFavButton.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
     }
 

@@ -11,9 +11,9 @@ extension MoviesViewController {
 
     func configureView() {
         drawDesign()
+        navigationBarAppearance()
         makeSearchBar()
         makeTableView()
-        navigationBarAppearance()
     }
 
     func drawDesign() {
@@ -23,7 +23,7 @@ extension MoviesViewController {
     }
 
     func makeSearchBar() {
-        searchBar.searchBar.searchBarStyle = .prominent
+        searchBar.searchBar.searchBarStyle = .minimal
         searchBar.searchBar.placeholder = "Enter the movie name"
         searchBar.searchResultsUpdater = self
         navigationItem.searchController = searchBar
@@ -32,7 +32,7 @@ extension MoviesViewController {
     func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 160
+        tableView.rowHeight = 180
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.movieCell)
         tableView.separatorStyle = .none
