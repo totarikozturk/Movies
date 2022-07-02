@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D001CD8B286F8F6900BEC826 /* SearchModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D001CD8A286F8F6900BEC826 /* SearchModal.swift */; };
 		D01C5819285E8A4E0050FCE5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D01C5818285E8A4E0050FCE5 /* Kingfisher */; };
 		D01C581D285F33350050FCE5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C581C285F33350050FCE5 /* SplashViewController.swift */; };
 		D01C581F285F5A2C0050FCE5 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01C581E285F5A2B0050FCE5 /* MovieDetailViewController.swift */; };
@@ -29,16 +28,15 @@
 		D0C63C74285E68BF007B1FDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0C63C73285E68BF007B1FDB /* Assets.xcassets */; };
 		D0C63C85285E70CB007B1FDB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D0C63C84285E70CB007B1FDB /* SnapKit */; };
 		D0CFD8AA286C8F4100681C5F /* MakeBookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8A9286C8F4100681C5F /* MakeBookMarkCell.swift */; };
-		D0CFD8B0286CB69800681C5F /* ApiGenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8AF286CB69800681C5F /* ApiGenreService.swift */; };
+		D0CFD8B0286CB69800681C5F /* GenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8AF286CB69800681C5F /* GenreService.swift */; };
 		D0CFD8B6286D80E200681C5F /* SplashViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8B5286D80E200681C5F /* SplashViewModal.swift */; };
 		D0CFD8BA286D8C3700681C5F /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CFD8B9286D8C3700681C5F /* AppManager.swift */; };
-		D0D323FE2867C8980028629A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D323FD2867C8980028629A /* ApiService.swift */; };
+		D0D323FE2867C8980028629A /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D323FD2867C8980028629A /* MovieService.swift */; };
 		D0D32401286A31450028629A /* MakeMovieCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D32400286A31450028629A /* MakeMovieCellView.swift */; };
 		D0E36CBE286AFD7D00DC6993 /* MovieDetailViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E36CBD286AFD7D00DC6993 /* MovieDetailViewModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D001CD8A286F8F6900BEC826 /* SearchModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModal.swift; sourceTree = "<group>"; };
 		D01C581C285F33350050FCE5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		D01C581E285F5A2B0050FCE5 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		D01C5820285F5B470050FCE5 /* BookMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksViewController.swift; sourceTree = "<group>"; };
@@ -60,10 +58,10 @@
 		D0C63C73285E68BF007B1FDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0C63C78285E68BF007B1FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0CFD8A9286C8F4100681C5F /* MakeBookMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeBookMarkCell.swift; sourceTree = "<group>"; };
-		D0CFD8AF286CB69800681C5F /* ApiGenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGenreService.swift; sourceTree = "<group>"; };
+		D0CFD8AF286CB69800681C5F /* GenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreService.swift; sourceTree = "<group>"; };
 		D0CFD8B5286D80E200681C5F /* SplashViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModal.swift; sourceTree = "<group>"; };
 		D0CFD8B9286D8C3700681C5F /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
-		D0D323FD2867C8980028629A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		D0D323FD2867C8980028629A /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		D0D32400286A31450028629A /* MakeMovieCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovieCellView.swift; sourceTree = "<group>"; };
 		D0E36CBD286AFD7D00DC6993 /* MovieDetailViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				D0965A8E2864ECE60047AF0F /* MoviesModal.swift */,
-				D001CD8A286F8F6900BEC826 /* SearchModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -204,9 +201,9 @@
 		D0D323FF2867EBA00028629A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D0CFD8AF286CB69800681C5F /* ApiGenreService.swift */,
+				D0CFD8AF286CB69800681C5F /* GenreService.swift */,
 				D0965A902864FFC10047AF0F /* ApiKey.swift */,
-				D0D323FD2867C8980028629A /* ApiService.swift */,
+				D0D323FD2867C8980028629A /* MovieService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -322,13 +319,12 @@
 				D088CD452861B1FA00BE9168 /* MakeSplashView.swift in Sources */,
 				D0C63C6D285E68BF007B1FDB /* SceneDelegate.swift in Sources */,
 				D0965A8D2864D5080047AF0F /* keyExtension.swift in Sources */,
-				D0CFD8B0286CB69800681C5F /* ApiGenreService.swift in Sources */,
+				D0CFD8B0286CB69800681C5F /* GenreService.swift in Sources */,
 				D088CD472861B32A00BE9168 /* MakeMovieDetailView.swift in Sources */,
 				D0965A8F2864ECE60047AF0F /* MoviesModal.swift in Sources */,
 				D088CD4B2861B72400BE9168 /* BookMarkCell.swift in Sources */,
 				D0E36CBE286AFD7D00DC6993 /* MovieDetailViewModal.swift in Sources */,
-				D0D323FE2867C8980028629A /* ApiService.swift in Sources */,
-				D001CD8B286F8F6900BEC826 /* SearchModal.swift in Sources */,
+				D0D323FE2867C8980028629A /* MovieService.swift in Sources */,
 				D0CFD8BA286D8C3700681C5F /* AppManager.swift in Sources */,
 				D088CD492861B55B00BE9168 /* MakeBookMarkView.swift in Sources */,
 				D01C581D285F33350050FCE5 /* SplashViewController.swift in Sources */,

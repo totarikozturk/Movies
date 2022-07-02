@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ApiGenreService {
+class GenreService {
 
     private var dataTask: URLSessionDataTask?
 
-    func getSearchMoviesData(for query: String, completion: @escaping (Result<SearchMovie, Error>) -> Void ) {
+    func getSearchMoviesData(for query: String, completion: @escaping (Result<MoviesData, Error>) -> Void ) {
         let searchMoviesURL = ApiKey.searchUrl
         guard let url = URL(string: searchMoviesURL + query) else { return }
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -32,7 +32,7 @@ class ApiGenreService {
 
             do {
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode(SearchMovie.self, from: data)
+                let jsonData = try decoder.decode(MoviesData.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(jsonData))
                 }

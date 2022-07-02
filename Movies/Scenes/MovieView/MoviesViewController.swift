@@ -21,10 +21,6 @@ class MoviesViewController: UIViewController {
         updateTableViewData()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     func updateTableViewData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -63,7 +59,7 @@ extension MoviesViewController: UISearchBarDelegate, UISearchResultsUpdating {
         guard let text = searchController.searchBar.text,
                       text.trimmingCharacters(in: CharacterSet.whitespaces).count >= 1  else {return}
         viewModal.fetchSearchMoviesData(for: text) {
-
+            self.tableView.reloadData()
         }
     }
 }

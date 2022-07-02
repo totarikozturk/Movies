@@ -9,7 +9,7 @@ import Foundation
 
 class SplashViewModal {
 
-    private var apiService = ApiService()
+    private var apiService = MovieService()
 
     func fetchMoviesData(completion: @escaping () -> Void) {
 

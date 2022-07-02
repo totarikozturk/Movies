@@ -10,16 +10,13 @@ import Foundation
 class MoviesViewModal {
 
     private var popularMovies = Singleton.popularMovies
-    private var apiGenreService = ApiGenreService()
-    private var searchMovies = [Search]()
-    private var movieSearchSucces: Bool = false
+    private var apiGenreService = GenreService()
 
     func fetchSearchMoviesData(for searchString: String, completion: @escaping () -> Void) {
         apiGenreService.getSearchMoviesData(for: searchString) { (result) in
             switch result {
             case .success(let listOf):
-                self.searchMovies = listOf.results
-                print(self.searchMovies)
+                self.popularMovies = listOf.movies
                 completion()
             case.failure(let error):
                 print("Error processing json data: \(error)")
