@@ -14,6 +14,7 @@ extension SplashViewController {
         view.addSubview(appTitle)
         makeAppTitle()
         startLoading()
+        view.backgroundColor = CustomColor.backGroundColor
     }
 
     func makeActivityIndicator() {
@@ -24,7 +25,7 @@ extension SplashViewController {
 
     func makeAppTitle() {
         appTitle.text = "Movies"
-        appTitle.textColor = .white
+        appTitle.textColor = CustomColor.titleColor
         appTitle.font = .systemFont(ofSize: 70, weight: .bold )
         appTitle.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(72)
@@ -43,7 +44,6 @@ extension SplashViewController {
         let viewController2 = UINavigationController(rootViewController: BookMarksViewController())
         viewController1.title = "Movie"
         viewController2.title = "BookMarks"
-        tabbarViewController.tabBar.backgroundColor = .lightGray
         tabbarViewController.setViewControllers([viewController1, viewController2], animated: false)
 
         guard let items = tabbarViewController.tabBar.items else { return }
@@ -55,8 +55,11 @@ extension SplashViewController {
         }
 
         tabbarViewController.modalPresentationStyle = .fullScreen
+        tabbarViewController.tabBar.backgroundColor = CustomColor.backGroundColor
+        tabbarViewController.tabBar.barTintColor = CustomColor.backGroundColor
+        tabbarViewController.tabBar.tintColor = CustomColor.titleColor
         DispatchQueue.main.async {
-            self.present(tabbarViewController, animated: true)
+            self.view.window?.rootViewController = tabbarViewController
         }
     }
 

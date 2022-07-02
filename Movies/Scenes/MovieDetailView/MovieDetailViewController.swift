@@ -17,6 +17,7 @@ class MovieDetailViewController: UIViewController {
     let detailRateTitle = UILabel()
     let detailRate = UILabel()
     let detailDesc = UILabel()
+    let detailView = UIView()
     private var viewModal = MovieDetailViewModal()
 
     override func viewDidLoad() {

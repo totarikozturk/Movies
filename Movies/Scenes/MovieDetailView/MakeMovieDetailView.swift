@@ -12,7 +12,6 @@ extension MovieDetailViewController {
     func configureView() {
         drawDesign()
         makeDetailImageView()
-        makeDetailTitleView()
         makeDetailYearTitleView()
         makeDetailYearView()
         makeDetailRateTitleView()
@@ -23,13 +22,12 @@ extension MovieDetailViewController {
 
     func drawDesign() {
         view.addSubview(detailImage)
-        view.addSubview(detailTitle)
         view.addSubview(detailYearTitle)
         view.addSubview(detailYear)
         view.addSubview(detailRateTitle)
         view.addSubview(detailRate)
         view.addSubview(detailDesc)
-        view.backgroundColor = .orange
+        view.backgroundColor = CustomColor.contentViewColor
     }
 
     func makeDetailImageView() {
@@ -43,54 +41,40 @@ extension MovieDetailViewController {
         }
     }
 
-    func makeDetailTitleView() {
-        detailTitle.lineBreakMode = .byWordWrapping
-        detailTitle.numberOfLines = 0
-        detailTitle.textAlignment = .center
-        detailTitle.adjustsFontSizeToFitWidth = true
-        detailTitle.textColor = UIColor.black
-        detailTitle.font = .boldSystemFont(ofSize: 24)
-        detailTitle.snp.makeConstraints { make in
-            make.top.equalTo(detailImage.snp_bottomMargin).offset(8)
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
-        }
-    }
-
     func makeDetailYearTitleView() {
-        detailYearTitle.textColor = UIColor.black
+        detailYearTitle.textColor = CustomColor.titleColor
         detailYearTitle.font = .boldSystemFont(ofSize: 16)
         detailYearTitle.text = "Release Date:"
         detailYearTitle.snp.makeConstraints { make in
-            make.top.equalTo(detailTitle.snp.bottom).offset(8)
+            make.top.equalTo(detailImage.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(8)
         }
     }
 
     func  makeDetailYearView() {
-        detailYear.textColor = UIColor.black
+        detailYear.textColor = CustomColor.textColor
         detailYear.font = .systemFont(ofSize: 16)
         detailYear.snp.makeConstraints { make in
-            make.top.equalTo(detailTitle.snp.bottom).offset(8)
+            make.top.equalTo(detailImage.snp.bottom).offset(8)
             make.left.equalTo(detailYearTitle.snp.right).offset(4)
         }
     }
 
     func makeDetailRateTitleView() {
-        detailRateTitle.textColor = UIColor.black
+        detailRateTitle.textColor = CustomColor.titleColor
         detailRateTitle.font = .boldSystemFont(ofSize: 16)
-        detailRateTitle.text = "Rate: 10/"
+        detailRateTitle.text = "Rate: "
         detailRateTitle.snp.makeConstraints { make in
-            make.top.equalTo(detailTitle.snp.bottom).offset(8)
+            make.top.equalTo(detailImage.snp.bottom).offset(8)
             make.left.equalTo(detailYear.snp.right).offset(16)
         }
     }
 
     func  makeDetailRateView() {
-        detailRate.textColor = UIColor.black
+        detailRate.textColor = CustomColor.textColor
         detailRate.font = .boldSystemFont(ofSize: 16)
         detailRate.snp.makeConstraints { make in
-            make.top.equalTo(detailTitle.snp.bottom).offset(8)
+            make.top.equalTo(detailImage.snp.bottom).offset(8)
             make.left.equalTo(detailRateTitle.snp.right)
         }
     }
@@ -99,6 +83,7 @@ extension MovieDetailViewController {
         detailDesc.lineBreakMode = .byWordWrapping
         detailDesc.numberOfLines = 0
         detailDesc.textAlignment = .left
+        detailDesc.textColor = CustomColor.textColor
         detailDesc.snp.makeConstraints { make in
             make.top.equalTo(detailRate.snp.bottom).offset(8)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(8)
@@ -107,12 +92,16 @@ extension MovieDetailViewController {
     }
 
     func navigationBarAppearance() {
+        var viewmodal = MovieDetailViewModal()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .lightGray
+        appearance.backgroundColor = CustomColor.backGroundColor
+        guard let customColor = CustomColor.titleColor else { return }
+        appearance.largeTitleTextAttributes = [.foregroundColor: customColor]
+        appearance.titleTextAttributes  = [.foregroundColor: customColor]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.backgroundColor = .lightGray
-        navigationItem.title = "MovieDetail"
+        navigationController?.navigationBar.backgroundColor = CustomColor.backGroundColor
+        navigationItem.title = viewmodal.movieData().title
     }
 
 }

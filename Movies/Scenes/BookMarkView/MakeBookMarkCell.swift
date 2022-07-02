@@ -18,7 +18,10 @@ extension BookMarkCell {
     }
 
     func drawDesign() {
-        backgroundColor = UIColor.lightGray
+        contentView.backgroundColor = CustomColor.contentViewColor
+        contentView.layer.cornerRadius = 24
+        contentView.clipsToBounds = true
+        backgroundColor = CustomColor.backGroundColor
         addSubview(movieImage)
         addSubview(movieTitle)
         addSubview(movieYear)
@@ -35,6 +38,8 @@ extension BookMarkCell {
     }
 
     func makeMovieImage() {
+        movieImage.layer.cornerRadius = 16
+        movieImage.clipsToBounds = true
         movieImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-16)
@@ -49,7 +54,7 @@ extension BookMarkCell {
         movieTitle.textAlignment = .left
         movieTitle.minimumScaleFactor = 1
         movieTitle.adjustsFontSizeToFitWidth = true
-        movieTitle.textColor = UIColor.black
+        movieTitle.textColor = CustomColor.textColor
         movieTitle.font = .boldSystemFont(ofSize: 24)
         movieTitle.snp.makeConstraints { make in
             make.top.equalTo(movieImage.snp.topMargin)
@@ -59,7 +64,7 @@ extension BookMarkCell {
     }
 
     func makeMovieYear() {
-        movieYear.textColor = UIColor.black
+        movieYear.textColor = CustomColor.textColor
         movieYear.font = .systemFont(ofSize: 20)
         movieYear.snp.makeConstraints { make in
             make.top.equalTo(movieTitle.snp.bottomMargin).offset(8)
@@ -70,7 +75,7 @@ extension BookMarkCell {
     func makeMovieRate() {
         movieRate.numberOfLines = 0
         movieRate.adjustsFontSizeToFitWidth = true
-        movieRate.textColor = UIColor.black
+        movieRate.textColor = CustomColor.textColor
         movieRate.font = .boldSystemFont(ofSize: 20)
         movieRate.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-16)

@@ -38,12 +38,16 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.movieCell,
                                                        for: indexPath) as? MovieCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        cell.movieFavButton.tag = indexPath.row
         let movie = viewModal.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(movie)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cellSelect: UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath) else { return }
+        cellSelect.selectionStyle = .none
         let movieDetailViewController = MovieDetailViewController()
         let movie = viewModal.didSelectedRowAt(indexPath: indexPath)
         Singleton.movieDetailData = movie

@@ -16,17 +16,17 @@ extension BookMarksViewController {
     }
 
     func drawDesign() {
-        view.backgroundColor = .blue
         view.addSubview(tableView)
     }
 
     func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 160
+        tableView.rowHeight = 180
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(BookMarkCell.self, forCellReuseIdentifier: BookMarkCell.BookmarkCell)
         tableView.separatorStyle = .none
+        tableView.backgroundColor = CustomColor.backGroundColor
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -34,11 +34,14 @@ extension BookMarksViewController {
 
     func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .lightGray
+        appearance.backgroundColor = CustomColor.backGroundColor
+        guard let customColor = CustomColor.titleColor else { return }
+        appearance.largeTitleTextAttributes = [.foregroundColor: customColor]
+        appearance.titleTextAttributes  = [.foregroundColor: customColor]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.backgroundColor = .lightGray
-        navigationItem.title = "BookMarks"
+        navigationController?.navigationBar.backgroundColor = CustomColor.backGroundColor
+        navigationItem.title = "Your favourite movies"
     }
 
 }

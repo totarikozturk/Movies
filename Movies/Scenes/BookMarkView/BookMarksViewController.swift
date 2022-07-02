@@ -43,7 +43,7 @@ extension BookMarksViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: BookMarkCell.BookmarkCell,
             for: indexPath) as? BookMarkCell else { return UITableViewCell() }
-
+        cell.selectionStyle = .none
         let movie = viewModal.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(movie)
         return cell

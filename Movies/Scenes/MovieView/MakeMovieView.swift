@@ -17,8 +17,6 @@ extension MoviesViewController {
     }
 
     func drawDesign() {
-        view.backgroundColor = .purple
-        tableView.backgroundColor = .lightGray
         view.addSubview(tableView)
     }
 
@@ -26,10 +24,13 @@ extension MoviesViewController {
         searchBar.searchBar.searchBarStyle = .minimal
         searchBar.searchBar.placeholder = "Enter the movie name"
         searchBar.searchResultsUpdater = self
-        navigationItem.searchController = searchBar
+        searchBar.searchBar.tintColor = CustomColor.textColor
+        searchBar.searchBar.barTintColor = CustomColor.textColor
+        searchBar.searchBar.searchTextField.textColor = CustomColor.textColor
     }
 
     func makeTableView() {
+        tableView.backgroundColor = CustomColor.backGroundColor
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 180
@@ -43,14 +44,19 @@ extension MoviesViewController {
 
     func navigationBarAppearance() {
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
+        appearance.backgroundColor = CustomColor.backGroundColor
+        guard let customColor = CustomColor.titleColor else { return }
+        appearance.largeTitleTextAttributes = [.foregroundColor: customColor]
+        appearance.titleTextAttributes  = [.foregroundColor: customColor]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.barStyle = .default
-        navigationController?.navigationBar.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Movies"
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.backgroundColor = CustomColor.backGroundColor
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.title = "Movies you looking for ?"
+        navigationItem.titleView?.tintColor = CustomColor.titleColor
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.searchController = searchBar
     }
 
 }

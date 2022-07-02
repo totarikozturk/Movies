@@ -19,8 +19,10 @@ extension MovieCell {
     }
 
     func drawDesign() {
-        contentView.backgroundColor = .lightGray
-        backgroundColor = UIColor.lightGray
+        contentView.backgroundColor = CustomColor.contentViewColor
+        contentView.layer.cornerRadius = 24
+        contentView.clipsToBounds = true
+        backgroundColor = CustomColor.backGroundColor
         addSubview(movieImage)
         addSubview(movieTitle)
         addSubview(movieYear)
@@ -54,17 +56,17 @@ extension MovieCell {
         movieTitle.textAlignment = .left
         movieTitle.minimumScaleFactor = 1
         movieTitle.adjustsFontSizeToFitWidth = true
-        movieTitle.textColor = UIColor.black
+        movieTitle.textColor = CustomColor.textColor
         movieTitle.font = .boldSystemFont(ofSize: 24)
         movieTitle.snp.makeConstraints { make in
             make.top.equalTo(movieImage.snp.topMargin)
             make.left.equalTo(movieImage.snp.right).offset(8)
-            make.right.equalToSuperview().offset(-60)
+            make.right.equalToSuperview().offset(-36)
         }
     }
 
     func makeMovieYear() {
-        movieYear.textColor = UIColor.black
+        movieYear.textColor = CustomColor.textColor
         movieYear.font = .systemFont(ofSize: 20)
         movieYear.snp.makeConstraints { make in
             make.top.equalTo(movieTitle.snp.bottomMargin).offset(8)
@@ -74,10 +76,10 @@ extension MovieCell {
 
     func makeMovieRate() {
         movieRate.layer.cornerRadius = 8
-        movieRate.layer.borderWidth = 1
+        movieRate.layer.backgroundColor = CustomColor.rateColor?.cgColor
         movieRate.numberOfLines = 0
         movieRate.adjustsFontSizeToFitWidth = true
-        movieRate.textColor = UIColor.black
+        movieRate.textColor = CustomColor.contentViewColor
         movieRate.font = .systemFont(ofSize: 20)
         movieRate.textAlignment = .center
         movieRate.snp.makeConstraints { make in
@@ -89,7 +91,7 @@ extension MovieCell {
 
     func makeMovieFavButton() {
         movieFavButton.translatesAutoresizingMaskIntoConstraints = false
-        movieFavButton.tintColor = UIColor.black
+        movieFavButton.tintColor = CustomColor.textColor
         movieFavButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-8)
             make.right.equalToSuperview().offset(-16)
