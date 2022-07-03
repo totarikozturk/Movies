@@ -17,10 +17,17 @@ struct BookMarksViewModal {
 
     mutating func addBookmark() {
         let data =  Singleton.movieBookmarkData
-            if  Singleton.favButtonTapped {
+        if  Singleton.favButtonTapped {
+            if self.bookMarksArray.isEmpty {
                 self.bookMarksArray.append(data)
                 save()
-                Singleton.favButtonTapped = false
+            } else {
+                if self.bookMarksArray.last?.title != data.title {
+                    self.bookMarksArray.append(data)
+                    save()
+                }
+            }
+            Singleton.favButtonTapped = false
         }
     }
 
