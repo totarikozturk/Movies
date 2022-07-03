@@ -22,9 +22,12 @@ struct BookMarksViewModal {
                 self.bookMarksArray.append(data)
                 save()
             } else {
-                if self.bookMarksArray.last?.title != data.title {
-                    self.bookMarksArray.append(data)
+                if self.bookMarksArray.contains(where: {$0.title == data.title}) {
+                    Singleton.favButtonTapped = false
+                } else {
+                   self.bookMarksArray.append(data)
                     save()
+                    Singleton.favButtonTapped = false
                 }
             }
             Singleton.favButtonTapped = false
