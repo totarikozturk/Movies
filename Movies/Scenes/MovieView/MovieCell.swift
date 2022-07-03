@@ -33,6 +33,10 @@ class MovieCell: UITableViewCell {
     @objc func favButtonTapped(_ sender: UIButton) {
         Singleton.movieBookmarkData = movieDataForBookMark
         Singleton.favButtonTapped = true
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            movieFavButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        }
     }
 
     func setCellWithValuesOf(_ movie: Movie) {

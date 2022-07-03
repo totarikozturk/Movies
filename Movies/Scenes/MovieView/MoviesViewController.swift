@@ -39,7 +39,6 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.movieCell,
                                                        for: indexPath) as? MovieCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.movieFavButton.tag = indexPath.row
         let movie = viewModal.cellForRowAt(indexPath: indexPath)
         cell.setCellWithValuesOf(movie)
         return cell
