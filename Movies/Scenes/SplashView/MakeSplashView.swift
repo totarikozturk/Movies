@@ -24,7 +24,7 @@ extension SplashViewController {
     }
 
     func makeAppTitle() {
-        appTitle.text = "Movies"
+        appTitle.text = Titles.appTitle
         appTitle.textColor = CustomColor.titleColor
         appTitle.font = .systemFont(ofSize: 70, weight: .bold )
         appTitle.snp.makeConstraints { make in
@@ -42,13 +42,13 @@ extension SplashViewController {
         let tabbarViewController = UITabBarController()
         let viewController1 = UINavigationController(rootViewController: MoviesViewController())
         let viewController2 = UINavigationController(rootViewController: BookMarksViewController())
-        viewController1.title = "Movie"
-        viewController2.title = "BookMarks"
+        viewController1.title = Titles.movieTabTitle
+        viewController2.title = Titles.bookMarkTabTitle
         tabbarViewController.setViewControllers([viewController1, viewController2], animated: false)
 
         guard let items = tabbarViewController.tabBar.items else { return }
 
-        let images = ["display", "book"]
+        let images = [ViewSymbols.display, ViewSymbols.book]
 
         for item in 0..<items.count {
             items[item].image = UIImage(systemName: images[item])

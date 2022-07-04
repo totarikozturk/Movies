@@ -22,7 +22,7 @@ extension MoviesViewController {
 
     func makeSearchBar() {
         searchBar.searchBar.searchBarStyle = .minimal
-        searchBar.searchBar.placeholder = "Enter the movie name"
+        searchBar.searchBar.placeholder = Texts.searchBarPlaceHolderText
         searchBar.searchResultsUpdater = self
         searchBar.searchBar.tintColor = CustomColor.textColor
         searchBar.searchBar.barTintColor = CustomColor.textColor
@@ -53,7 +53,7 @@ extension MoviesViewController {
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.backgroundColor = CustomColor.backGroundColor
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = "Movies you looking for ?"
+        navigationItem.title = Titles.moviesViewTitle
         navigationItem.titleView?.tintColor = CustomColor.titleColor
         navigationController?.navigationBar.tintColor = .systemBlue
         navigationItem.searchController = searchBar

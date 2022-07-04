@@ -7,6 +7,7 @@
 import Foundation
 
 struct MoviesData: Decodable {
+
     let movies: [Movie]
 
     private enum CodingKeys: String, CodingKey {
@@ -28,4 +29,5 @@ struct Movie: Codable {
         case rate = "vote_average"
         case posterImage = "poster_path"
     }
+
 }

@@ -30,7 +30,7 @@ class MovieDetailViewController: UIViewController {
     func updateDetailUI() {
         let movie = viewModal.movieData()
         guard let posterString = movie.posterImage else { return }
-        let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
+        let url = URL(string: ApiKey.imageUrl + posterString)
         detailImage.kf.setImage(with: url)
         detailTitle.text = movie.title
         detailYear.text = viewModal.convertDate(movie.year)

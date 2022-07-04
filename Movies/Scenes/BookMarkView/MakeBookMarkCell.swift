@@ -31,10 +31,11 @@ extension BookMarkCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         let bottomSpace: CGFloat = 10.0
-        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0,
-                                                                               left: 0,
-                                                                               bottom: bottomSpace,
-                                                                               right: 0))
+        self.contentView.frame = self.contentView.frame.inset(by:
+                                                 UIEdgeInsets(top: 0,
+                                                              left: 0,
+                                                              bottom: bottomSpace,
+                                                              right: 0))
     }
 
     func makeMovieImage() {

@@ -9,7 +9,7 @@ import UIKit
 
 class BookMarkCell: UITableViewCell {
 
-    static let BookmarkCell = "BookmarkCell"
+    static let BookmarkCell = CellIdent.bookmarkCell
     private let viewModal = BookMarksViewModal()
 
     let movieImage = UIImageView()
@@ -24,7 +24,7 @@ class BookMarkCell: UITableViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("\(ErrorCode.fatalInitError)")
     }
 
     func setCellWithValuesOf(_ movie: Movie) {
@@ -37,7 +37,7 @@ class BookMarkCell: UITableViewCell {
                           overView: String?, poster: String?) {
 
         guard let posterString = poster else { return }
-        let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
+        let url = URL(string: ApiKey.imageUrl + posterString)
         self.movieImage.kf.setImage(with: url)
         self.movieTitle.text = title
         self.movieYear.text = viewModal.convertDate(releaseDate)

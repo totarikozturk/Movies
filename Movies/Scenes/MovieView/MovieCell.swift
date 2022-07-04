@@ -10,7 +10,7 @@ import Kingfisher
 
 class MovieCell: UITableViewCell {
 
-    static let movieCell = "MovieCell"
+    static let movieCell = CellIdent.movieCell
     private var movieDataForBookMark = Movie()
     private let viewModal = MoviesViewModal()
 
@@ -27,7 +27,7 @@ class MovieCell: UITableViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("\(ErrorCode.fatalInitError)")
     }
 
     @objc func favButtonTapped(_ sender: UIButton) {
@@ -35,7 +35,7 @@ class MovieCell: UITableViewCell {
         Singleton.favButtonTapped = true
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
-            movieFavButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
+            movieFavButton.setImage(UIImage(systemName: ViewSymbols.starFill), for: .selected)
         }
     }
 
@@ -50,13 +50,13 @@ class MovieCell: UITableViewCell {
                           overView: String?, poster: String?) {
 
         guard let posterString = poster else { return }
-        let url = URL(string: "https://image.tmdb.org/t/p/w300" + posterString)
+        let url = URL(string: ApiKey.imageUrl + posterString)
         self.movieImage.kf.setImage(with: url)
         self.movieTitle.text = title
         self.movieYear.text = viewModal.convertDateFormatter(releaseDate)
         guard let rate = rating else { return }
         self.movieRate.text = String(rate)
-        self.movieFavButton.setImage(UIImage(systemName: "star"), for: .normal)
+        self.movieFavButton.setImage(UIImage(systemName: ViewSymbols.star), for: .normal)
         self.movieFavButton.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
     }
 

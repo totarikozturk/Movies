@@ -20,7 +20,7 @@ class SplashViewModal {
                 Singleton.popularMovies = listOf.movies
                 completion()
             case.failure(let error):
-                print("Error processing json data: \(error)")
+                print("\(ErrorCode.errorProcessingJson) \(error)")
             }
         }
     }

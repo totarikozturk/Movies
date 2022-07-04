@@ -41,7 +41,7 @@ extension BookMarksViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.backgroundColor = CustomColor.backGroundColor
-        navigationItem.title = "Your favourite movies"
+        navigationItem.title = Titles.bookmarkViewTitle
     }
 
 }

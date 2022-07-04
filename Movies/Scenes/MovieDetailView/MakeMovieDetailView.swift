@@ -44,7 +44,7 @@ extension MovieDetailViewController {
     func makeDetailYearTitleView() {
         detailYearTitle.textColor = CustomColor.titleColor
         detailYearTitle.font = .boldSystemFont(ofSize: 16)
-        detailYearTitle.text = "Release Date:"
+        detailYearTitle.text = Titles.detailReleaseTitle
         detailYearTitle.snp.makeConstraints { make in
             make.top.equalTo(detailImage.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(8)
@@ -63,7 +63,7 @@ extension MovieDetailViewController {
     func makeDetailRateTitleView() {
         detailRateTitle.textColor = CustomColor.titleColor
         detailRateTitle.font = .boldSystemFont(ofSize: 16)
-        detailRateTitle.text = "Rate: "
+        detailRateTitle.text = Titles.detailRateTitle
         detailRateTitle.snp.makeConstraints { make in
             make.top.equalTo(detailImage.snp.bottom).offset(8)
             make.left.equalTo(detailYear.snp.right).offset(16)
@@ -75,7 +75,7 @@ extension MovieDetailViewController {
         detailRate.font = .boldSystemFont(ofSize: 16)
         detailRate.snp.makeConstraints { make in
             make.top.equalTo(detailImage.snp.bottom).offset(8)
-            make.left.equalTo(detailRateTitle.snp.right)
+            make.left.equalTo(detailRateTitle.snp.right).offset(4)
         }
     }
 

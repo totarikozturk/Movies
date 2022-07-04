@@ -7,10 +7,6 @@
 
 import UIKit
 
-struct MoviesKeys {
-    static let movieFetchDataKey = "movieFetchDataKey"
-}
-
-struct Code {
+struct UserdefaultsCode {
     static let codableKey = "CodableKey"
 }

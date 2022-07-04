@@ -17,16 +17,16 @@ class MovieService {
         dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
-                print("DataTask error: \(error.localizedDescription)")
+                print("\(ErrorCode.dataTaskError) \(error.localizedDescription)")
                 return
             }
             guard let response = response as? HTTPURLResponse else {
-                print("Empty Response")
+                print("\(ErrorCode.responseError)")
                 return
             }
-            print("Response status code : \(response.statusCode)")
+            print("\(ErrorCode.responseStatusCode) \(response.statusCode)")
             guard let data = data else {
-                print("Empty Data")
+                print("\(ErrorCode.emptyData)")
                 return
             }
             do {

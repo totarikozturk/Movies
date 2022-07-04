@@ -15,7 +15,7 @@ class BookMarksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: below line code writed for when need to clear bookmark data
-//        UserDefaults.standard.removeObject(forKey: Code.codableKey)
+//        UserDefaults.standard.removeObject(forKey: UserdefaultsCode.codableKey)
         configureView()
     }
 

@@ -8,6 +8,7 @@
 import Foundation
 
 class Singleton {
+
     static let shared = Singleton()
     static var movieDetailData = Movie()
     static var movieBookmarkData = Movie()

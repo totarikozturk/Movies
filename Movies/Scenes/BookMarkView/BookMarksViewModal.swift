@@ -36,11 +36,11 @@ struct BookMarksViewModal {
 
     func save() {
         guard let data = try? JSONEncoder().encode(bookMarksArray) else { return }
-        UserDefaults.standard.set(data, forKey: Code.codableKey)
+        UserDefaults.standard.set(data, forKey: UserdefaultsCode.codableKey)
     }
 
     mutating func load() {
-        guard let loadedData = UserDefaults.standard.data(forKey: Code.codableKey)  else { return }
+        guard let loadedData = UserDefaults.standard.data(forKey: UserdefaultsCode.codableKey)  else { return }
         do {
             bookMarksArray = try JSONDecoder().decode([Movie].self, from: loadedData)
         } catch { print(error) }
